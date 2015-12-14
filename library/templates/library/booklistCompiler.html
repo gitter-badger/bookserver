@@ -1,0 +1,18 @@
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th><div class = "fixedheader">Title</div></th>
+                    <th><div class = "fixedheader">Series</div></th>
+                    <th><div class = "fixedheader">Author</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in object_list %}
+                <tr id = "tableentry{{forloop.counter}}" data-position = "{{forloop.counter}}">
+                    <td> {{ book.title }}</td>
+                    <td> {% for series in book.series.all %}<a href="#&lt;series&gt; {{series.name}}" class="search">{{ series.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                    <td>{% for author in book.authors.all %}<a href="#&lt;author&gt; {{ author.name }}" class="search">{{ author.name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>

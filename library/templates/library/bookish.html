@@ -1,0 +1,13 @@
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script>
+ $.get('https://booki.sh/sign/out',function(data){
+	var loginData = {};
+	
+	loginData.authenticity_token = $("[name=authenticity_token]").val
+	alert(loginData);
+ 
+	//$.post('https://booki.sh/sign/in',loginData, function(data){
+
+	//});
+});
+</script>

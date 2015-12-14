@@ -1,0 +1,198 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+{% block header %}
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block sitetitle %}{% block pagetitle %}{% endblock %} | Winged Library{% endblock %}</title>
+    {% block scripts %}
+        {% block customScripts %}
+        
+        {%endblock %}
+    {% endblock %}
+    
+    {% block styles %}
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+            <link href="{{ STATIC_URL }}library/css/bootstrap-glyphicons.css" rel="stylesheet">
+            
+            <link href="{{ STATIC_URL }}library/css/customSearch.css" rel="stylesheet">
+            <link href="{{ STATIC_URL }}library/css/carousel.css" rel="stylesheet">
+            <link href="{{ STATIC_URL }}library/css/booklist.css" rel="stylesheet">
+            
+            {% block pageStyles %}
+            {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+{%block body %}
+    {% block topbar %}
+        <div class = "catalogtop">
+            <div class = "navbar-wrapper">
+                <div class = "container">
+                    <div class="navbar navbar-inverse">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                 
+                                <ul class="nav navbar-nav pull-right">
+                                    <li><a href="/accounts/logout/">Logout</a></li>
+                                
+                                </ul>
+                            
+                                <form class="navbar-search" id="search-bar">
+                                    {% csrf_token %}
+                                    <input type="text" name="searchdata" class="search-query col-4 col-lg-4" placeholder="Search">
+                                    <div class="icon-search glyphicon glyphicon-search"></div>
+                                </form>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%block custom-no-scroll %}
+            {%endblock%}
+        </div>
+    {% endblock %}
+
+    <div class = "catalogbottom">
+    {% block content %}
+    {% endblock %}
+    </div>
+<div id = 'loading' class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Alfred is fetching your request. Please admire this awesome site as you wait.</p>
+		<img src = '/media/winged_covers/robot_book.png' width = 500>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id = 'bookishLogin' class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Please enter your Booki.sh username and password.</p>
+		<form id="bookishForm">
+			{% csrf_token %}
+			<input type="text" name="username"  placeholder="Booki.sh Username">
+			<input type="password" name="password" placeholder="Booki.sh Password">
+			<input type='submit' value='Login'>
+		</form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block heavyScripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}library/scripts/holder.js"></script>
+    <script>
+	$.ajaxSetup({ 
+     beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                     break;
+                 }
+             }
+         }
+         return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+	} 
+	});
+    $('a.search').click(function(e) { 
+		e.stopPropagation();
+		e.preventDefault();
+		$("#search-bar input").val($(this).attr('href').replace('#', ''));
+		$( "#search-bar" ).triggerHandler( "submit" );
+	});
+    $("#search-bar").submit(function(e){
+	$('#loading').modal('toggle');
+    $('.carousel').carousel('pause');
+        e.preventDefault();
+        {% block navbarSearch %}
+            $.post('/shelves/index/',$(this).serialize(), function(data){
+                
+                $('.booklist').html(data.booklist);
+                $('.carousel-inner').html(data.carousel);
+                $("tr").click(function(e){
+					var target = e.target,
+					$target = $(target);
+					if ($target.hasClass('search')) {
+						$("#search-bar input").val($target.attr('href').replace('#', ''));
+						$( "#search-bar" ).triggerHandler( "submit" );
+					}
+					else{
+                    $('.carousel').carousel($(this).data("position")-1);
+					}
+                });
+                $('#myCarousel').on('slide.bs.carousel', function (e) {
+                    var prevPosition = $(".active", e.target).index()+1;
+                    $('#tableentry'+prevPosition).removeClass('active');
+                });
+                $('#myCarousel').on('slid.bs.carousel', function (e) {
+                    var position = $(".active", e.target).index()+1;
+                    $('#tableentry'+position).addClass('active');
+                });
+				$('.bookish').click(function(e){
+					e.preventDefault();
+						$('.carousel').carousel('pause');
+						$.get( "bookish/user", function( data ) {
+							if (data.askLogin){
+								$('#bookishLogin').modal('toggle');
+							}
+							else{
+								uploadData = {filename:e.target.getAttribute('data-link')};
+								$.post("bookish/book",uploadData,function( data ) {
+									if (data.askLogin){
+										$('#bookishLogin').modal('toggle');
+									}
+									else{
+										alert("Book upload status is: " + data.status);
+									}
+								});
+							
+							}
+							
+						});
+					});
+                $('#loading').modal('toggle');
+                $('.carousel').carousel('cycle');
+            });
+        {% endblock %}
+    
+  });
+  $('#loading').hide();
+  $('#bookishLogin').hide();
+  $('#bookishForm').submit(function(e){
+	e.preventDefault();
+	$('#bookishLogin').modal('toggle');
+	$.post('bookish/user',$(this).serialize(), function(data){
+		if (data.cookies){
+			alert("Login Successfull. Please resubmit book transfer request");
+		}
+	
+	});
+  });
+  
+  </script>
+  
+    {% block customHeavyScripts %}
+    {% endblock %}
+{% endblock %}

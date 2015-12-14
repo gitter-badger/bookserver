@@ -1,0 +1,4 @@
+Your application has been accepted. Please click the link below to activate your account.
+{% load url from future %}
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key=activation_key %}

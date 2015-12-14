@@ -1,0 +1,10 @@
+{% extends "library/base.html" %}
+{% block pagetitle %}Books By Author{% endblock %}
+{% block content %}
+    <h2>{{book.title}}</h2>
+    <ul>
+        {% for file in bookFiles %}
+            <li><a href="/media/{{file.fileLocation|urlencode:'\/'}}"> {{file.fileType}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

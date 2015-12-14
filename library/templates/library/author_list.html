@@ -1,0 +1,11 @@
+{% extends "library/base.html" %}
+{% block pagetitle %}Authors{% endblock %}
+{% block authorActive %}class = "active"{% endblock %}
+{% block content %}
+    <h2>Authors</h2>
+    <ul>
+        {% for author in object_list %}
+            <li><a href="{{ author.firstName|urlencode:''}}_{{author.lastName|urlencode:''}}/books">{{ author.firstName }} {{author.lastName}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

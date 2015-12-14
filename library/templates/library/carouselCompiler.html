@@ -1,0 +1,71 @@
+{% load static %}
+{% for book in object_list %} 
+	{% if forloop.first %}
+		<div class="item active">
+    {% else %}
+        <div class="item">
+    {% endif %}
+        <img class = 'background' alt="{{ book.title }}" src="{% get_static_prefix %}library/img/grey.png">
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>{{ book.title }}</h1>
+                <div class = "row">
+                    <div class="col-4 col-lg-4"></div>
+                    <div class="col-4 col-lg-4">
+                        <div class="container">
+			{% for author in book.authors.all|slice:":1" %}
+                            <div class = "bookcover"><img class = 'cover' alt= "{{author.name}}/{{ book.title }}" onerror="imgError(this);" src="/media/{{book.cover|urlencode:'\/'}}"></div>
+			{% endfor %}
+			</div>
+                    </div>
+                    <div class="col-2 col-lg-2">
+                        <div class = "filetypes btn-group"> 
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Download <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                {% for file in book.bookfile_set.all %}
+                                    <li><a href="/media/{{file.fileLocation|urlencode:'\/'}}">{{file.fileType.name}}</a></li>
+                                {%empty%}
+                                    <li><a href="#">No Files Available</a></li>
+                                {% endfor %}
+							</ul>
+						</div>
+
+						<div class = "filetypes btn-group"> 
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Transfer to<span class="caret"></span>
+                            </button>
+							<ul class="dropdown-menu">
+								{% for file in book.bookfile_set.all %}
+									{% if file.fileType.name == "epub" %} 
+										<li><a class='bookish' data-link="{{file.fileLocation}}">Booki.sh</a></li>
+									{% elif file.fileType.name == "mobi" %}
+										<li><a href="#">Kindle</a></li>
+									{% elif file.fileType.name == "azw3" %}
+										<li><a href="#">Kindle</a></li>
+									{%endif%}
+									{% if forloop.last %}
+										<li><a href="#">Email</a></li>
+									{% endif %}
+										
+                                {%empty%}
+                                    <li><a href="#">No Files Available</a></li>
+                                {% endfor %}
+							</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="item active">
+        <img alt="{{ book.title }}" src="/static/library/css/grey.png">
+        <div class="container">
+            <div class="carousel-caption">
+                <h1>No Items Found</h1>
+            </div>
+        </div>
+    </div>
+{% endfor %}

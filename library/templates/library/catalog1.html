@@ -1,0 +1,104 @@
+{% extends "library/base.html" %}
+{% block pagetitle %}Catalog{% endblock %}
+{% block customScripts %}
+<script>
+function imgError(image){
+    testImage = '/media/winged_covers/' + $(image).attr('alt') + '/cover.jpg'
+    $.ajax({
+        url:testImage,
+        type:'HEAD',
+        error: function()
+        {
+            testImage = '/media/winged_covers/' + $(image).attr('alt') + '/cover.jpeg';
+
+            $.ajax({
+                url:testImage,
+                type:'HEAD',
+                error: function()
+                {
+                    $(image).attr('src', '/media/winged_covers/nocover.jpg');
+                    return;
+                },
+                success: function()
+                {
+                    $(image).attr('src', testImage);
+                    return;
+                }
+            });
+        },
+        success: function()
+        {
+           $(image).attr('src', testImage);
+            return;
+        }
+    });
+}
+</script>
+
+
+{%endblock %}
+
+
+{%block custom-no-scroll %}
+    <!-- Carousel
+    ================================================== -->
+<div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+            <div class="item active">
+                <img class = 'background' src="{{ STATIC_URL }}library/img/grey.png">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Winged Library</h1>
+                      <p>Search by author, title, or series to find books</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+{% endblock%}
+{% block content %}
+<div class = "row">
+    <div class = "booklist col-8 col-lg-8">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th><div class = "fixedheader">Title</div></th>
+                    <th><div class = "fixedheader">Series</div></th>
+                    <th><div class = "fixedheader">Author</div></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class = "col-4 col-lg-4">
+            <div class = "booksummary">
+            Book summary goes here.
+            </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block customHeavyScripts %}
+<script>
+function handleVisibilityChange() {
+  if (document.webkitHidden) {
+   $('.carousel').carousel('pause');
+  } else {
+    $('.carousel').carousel('cycle');
+  }
+}
+
+document.addEventListener("webkitvisibilitychange", handleVisibilityChange, false);
+</script>
+<script>
+$(".bookish").click(function() {
+	$.get( "bookish/user", function( data ) {
+		alert( data );
+	});
+});
+</script>
+
+{% endblock %}

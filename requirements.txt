@@ -1,0 +1,3 @@
+haystack
+git+git:github.com/david--wright/django-inspectional-registration.git
+MySQL-python

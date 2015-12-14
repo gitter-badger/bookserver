@@ -1,0 +1,21 @@
+.navbar-search {
+    position: relative;
+	top:15px;
+}
+  
+.navbar-search .search-query {
+    padding-left: 29px !important;
+}
+
+.navbar-search .icon-search {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+	z-index:12;
+}
+
+.navbar-search .search-query{
+	border-radius: 4px 4px 4px 4px;
+}
+
+
