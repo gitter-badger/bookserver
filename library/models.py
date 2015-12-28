@@ -1,6 +1,7 @@
 from django.db import models
 from myUtils import unique_slugify
 from django.contrib.auth.models import User
+from django.forms.models import model_to_dict
 
 # Create your models here.
 class Book(models.Model):
@@ -29,7 +30,19 @@ class Book(models.Model):
         super(Book, self).save(*args, **kwargs)
     def __unicode__(self):
         return self.title
-
+    def as_dict(self):
+        return {
+            'id':self.id,
+            'title':self.title,
+            'authors':[model_to_dict(author) for author in self.authors.all()],
+            'publisher':self.publisher,
+            'series':[model_to_dict(series) for series in self.series.all()],
+            'tags':[model_to_dict(tag) for tag in self.tags.all()],
+            'slug':self.slug,
+            'isbn':self.isbn,
+            'filetypes':[model_to_dict(filetype) for filetype in self.fileTypes.all()],
+            'coverurl':self.cover.url
+            }
 class book_series(models.Model):
     id = models.AutoField(primary_key=True)
     book = models.ForeignKey('Book')
@@ -81,7 +94,7 @@ class BookFile(models.Model):
     fileLocation = models.FileField(upload_to=save_path, max_length=256)
     def __unicode__(self):
         return self.book.title + ' ' + self.fileType.name   
-		
+        
 class Bookish(models.Model):
-	user = models.OneToOneField(User)
-	login_cookie = models.CharField(max_length=512, blank=True)
+    user = models.OneToOneField(User)
+    login_cookie = models.CharField(max_length=512, blank=True)
