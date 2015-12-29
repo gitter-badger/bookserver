@@ -1,0 +1,2949 @@
+{  
+   "rawdata":[  
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson%2C%20Mary%20Robinette%20Kowal%2C%20Dan%20Wells%2C%20Howard%20Tayler/Shadows%20Beneath%3A%20The%20Writing%20Excuses%20Anthology/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Shadows Beneath: The Writing Excuses Anthology",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Tayler, Brandon Sanderson, Mary Robinette Kowal, Dan Wells, Howard",
+               "id":1548,
+               "name":"Brandon Sanderson, Mary Robinette Kowal, Dan Wells, Howard Tayler"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":3670,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz/Images/msr_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5720,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Evil%20Librarians/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Evil Librarians",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5721,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Scrivener's%20Bones/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Scrivener's Bones",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5722,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Knights%20of%20Crystallia/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Knights of Crystallia",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5723,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20vs.%20the%20Shattered%20Lens/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz vs. the Shattered Lens",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5724,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Elantris/OEBPS/images/Sand_9780765311771_epub_cvi_r1.png",
+         "publisher":null,
+         "isbn":null,
+         "title":"Elantris",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":4,
+               "name":"html"
+            }
+         ],
+         "id":5725,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Hope%20of%20Elantris/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Hope of Elantris",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":4,
+               "name":"html"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5726,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Emperor's Soul ",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5727,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Firstborn/content/images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Firstborn",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Giancola, Donato",
+               "id":2482,
+               "name":"Donato Giancola"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5728,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Awakening ",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5729,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Infinity%20Blade%3A%20Awakening/Images/IBA_Cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Infinity Blade: Awakening",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":911,
+               "name":"Infinity Blade"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5730,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Redemption ",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":911,
+               "name":"Infinity Blade"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5731,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Legion/Images/Legion_cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Legion",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5732,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Legion%20and%20the%20Emperor's%20Soul/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Legion and the Emperor's Soul",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5733,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Midstborn%2001%20-%20Mistborn%3A%20The%20Final%20Empire/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Midstborn 01 - Mistborn: The Final Empire",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5734,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Final%20Empire/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Final Empire",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5735,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Well%20of%20Ascension/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Well of Ascension",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5736,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Mistborn%2002%20-%20The%20Well%20of%20Ascension/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mistborn 02 - The Well of Ascension",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5737,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Hero%20of%20Ages/images/9780765316899.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Hero of Ages",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5738,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Alloy%20of%20Law/9780575105843_msr_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Alloy of Law",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5739,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Mistborn%20Trilogy/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Mistborn Trilogy",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5740,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Steelheart/OEBPS/images/Sand_9780449818398_epub_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Steelheart",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5741,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Mitosis/OEBPS/images/Sand_9780449818435_epub_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mitosis",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":913,
+               "name":"Reckoners"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5742,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Way%20of%20Kings/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Way of Kings",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5743,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Stormlight%20Archive%2001%20-%20The%20Way%20of%20Kings/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Stormlight Archive 01 - The Way of Kings",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5744,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Words%20of%20Radiance/images/9781429949620.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Words of Radiance",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            }
+         ],
+         "id":5745,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Aether%20of%20Night/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Aether of Night",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5746,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Rithmatist/images/9781429953160.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Rithmatist",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            }
+         ],
+         "id":5747,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Warbreaker/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Warbreaker",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5748,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/White%20Sand/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"White Sand",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5749,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mistborn-The Final Empire",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5750,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Robert Jordan & Brandon Sanderson - The Wheel of Time (complete series) ",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Novel, Hugo 2014 Nominee",
+               "id":9875,
+               "name":"Hugo 2014 Nominee Novel"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":8,
+               "name":"txt"
+            }
+         ],
+         "id":24001,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/What%20the%20Storm%20Means/content/images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"What the Storm Means",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":53268,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Gathering%20Storm/images/9781429960830.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Gathering Storm",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":53269,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Robert%20Jordan/WoT-12-The%20Gathering%20Storm/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"WoT-12-The Gathering Storm",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":7,
+               "name":"htm"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":5,
+               "name":"rtf"
+            }
+         ],
+         "id":53270,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Robert%20Jordan/A%20Memory%20of%20Light/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"A Memory of Light",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":53273,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Terry%20Brooks/Unfettered/Images/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Unfettered",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            },
+            {  
+               "sort":"Salvatore, R. A.",
+               "id":4605,
+               "name":"R. A. Salvatore"
+            },
+            {  
+               "sort":"Durham, David Anthony",
+               "id":5184,
+               "name":"David Anthony Durham"
+            },
+            {  
+               "sort":"Carey, Jacqueline",
+               "id":10796,
+               "name":"Jacqueline Carey"
+            },
+            {  
+               "sort":"Novik, Naomi",
+               "id":15256,
+               "name":"Naomi Novik"
+            },
+            {  
+               "sort":"Brooks, Terry",
+               "id":15431,
+               "name":"Terry Brooks"
+            },
+            {  
+               "sort":"Lawrence, Mark",
+               "id":15990,
+               "name":"Mark Lawrence"
+            },
+            {  
+               "sort":"Rothfuss, Patrick",
+               "id":18253,
+               "name":"Patrick Rothfuss"
+            },
+            {  
+               "sort":"Brett, Peter V.",
+               "id":18767,
+               "name":"Peter V. Brett"
+            },
+            {  
+               "sort":"Speakman, Shawn",
+               "id":21058,
+               "name":"Shawn Speakman"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+     {  
+   "rawdata":[  
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson%2C%20Mary%20Robinette%20Kowal%2C%20Dan%20Wells%2C%20Howard%20Tayler/Shadows%20Beneath%3A%20The%20Writing%20Excuses%20Anthology/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Shadows Beneath: The Writing Excuses Anthology",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Tayler, Brandon Sanderson, Mary Robinette Kowal, Dan Wells, Howard",
+               "id":1548,
+               "name":"Brandon Sanderson, Mary Robinette Kowal, Dan Wells, Howard Tayler"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":3670,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz/Images/msr_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5720,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Evil%20Librarians/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Evil Librarians",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5721,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Scrivener's%20Bones/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Scrivener's Bones",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5722,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20versus%20the%20Knights%20of%20Crystallia/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz versus the Knights of Crystallia",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5723,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Alcatraz%20vs.%20the%20Shattered%20Lens/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Alcatraz vs. the Shattered Lens",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":909,
+               "name":"Alcatraz"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5724,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Elantris/OEBPS/images/Sand_9780765311771_epub_cvi_r1.png",
+         "publisher":null,
+         "isbn":null,
+         "title":"Elantris",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":4,
+               "name":"html"
+            }
+         ],
+         "id":5725,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Hope%20of%20Elantris/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Hope of Elantris",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":4,
+               "name":"html"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5726,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Emperor's Soul ",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":910,
+               "name":"Elantris"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5727,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Firstborn/content/images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Firstborn",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Giancola, Donato",
+               "id":2482,
+               "name":"Donato Giancola"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5728,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Awakening ",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5729,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Infinity%20Blade%3A%20Awakening/Images/IBA_Cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Infinity Blade: Awakening",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":911,
+               "name":"Infinity Blade"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5730,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Redemption ",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":911,
+               "name":"Infinity Blade"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5731,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Legion/Images/Legion_cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Legion",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5732,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Legion%20and%20the%20Emperor's%20Soul/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Legion and the Emperor's Soul",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5733,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Midstborn%2001%20-%20Mistborn%3A%20The%20Final%20Empire/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Midstborn 01 - Mistborn: The Final Empire",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5734,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Final%20Empire/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Final Empire",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5735,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Well%20of%20Ascension/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Well of Ascension",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5736,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Mistborn%2002%20-%20The%20Well%20of%20Ascension/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mistborn 02 - The Well of Ascension",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5737,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Hero%20of%20Ages/images/9780765316899.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Hero of Ages",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5738,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Alloy%20of%20Law/9780575105843_msr_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Alloy of Law",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5739,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Mistborn%20Trilogy/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Mistborn Trilogy",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5740,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Steelheart/OEBPS/images/Sand_9780449818398_epub_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Steelheart",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5741,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Mitosis/OEBPS/images/Sand_9780449818435_epub_cvi_r1.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mitosis",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":913,
+               "name":"Reckoners"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5742,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Way%20of%20Kings/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Way of Kings",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5743,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Stormlight%20Archive%2001%20-%20The%20Way%20of%20Kings/Images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Stormlight Archive 01 - The Way of Kings",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5744,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Words%20of%20Radiance/images/9781429949620.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Words of Radiance",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":914,
+               "name":"Stormlight Archive"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            }
+         ],
+         "id":5745,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Aether%20of%20Night/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Aether of Night",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5746,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Rithmatist/images/9781429953160.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Rithmatist",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":9,
+               "name":"azw3"
+            }
+         ],
+         "id":5747,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/Warbreaker/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Warbreaker",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5748,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/White%20Sand/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"White Sand",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":5749,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Mistborn-The Final Empire",
+         "series":[  
+            {  
+               "authors":[  
+                  2481
+               ],
+               "summary":"",
+               "id":912,
+               "name":"Mistborn"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":5750,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/none",
+         "publisher":null,
+         "isbn":null,
+         "title":"Robert Jordan & Brandon Sanderson - The Wheel of Time (complete series) ",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Novel, Hugo 2014 Nominee",
+               "id":9875,
+               "name":"Hugo 2014 Nominee Novel"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":8,
+               "name":"txt"
+            }
+         ],
+         "id":24001,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/What%20the%20Storm%20Means/content/images/cover.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"What the Storm Means",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":53268,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Brandon%20Sanderson/The%20Gathering%20Storm/images/9781429960830.jpg",
+         "publisher":null,
+         "isbn":null,
+         "title":"The Gathering Storm",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":53269,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Robert%20Jordan/WoT-12-The%20Gathering%20Storm/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"WoT-12-The Gathering Storm",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":7,
+               "name":"htm"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            },
+            {  
+               "description":"",
+               "id":5,
+               "name":"rtf"
+            }
+         ],
+         "id":53270,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Robert%20Jordan/A%20Memory%20of%20Light/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"A Memory of Light",
+         "series":[  
+            {  
+               "authors":[  
+                  2481,
+                  4358
+               ],
+               "summary":"",
+               "id":6843,
+               "name":"Wheel of Time"
+            }
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            },
+            {  
+               "description":"",
+               "id":2,
+               "name":"mobi"
+            }
+         ],
+         "id":53273,
+         "tags":[  
+
+         ],
+         "slug":""
+      },
+      {  
+         "coverurl":"/media/winged_covers/Terry%20Brooks/Unfettered/Images/cover.jpeg",
+         "publisher":null,
+         "isbn":null,
+         "title":"Unfettered",
+         "series":[  
+
+         ],
+         "authors":[  
+            {  
+               "sort":"Sanderson, Brandon",
+               "id":2481,
+               "name":"Brandon Sanderson"
+            },
+            {  
+               "sort":"Jordan, Robert",
+               "id":4358,
+               "name":"Robert Jordan"
+            },
+            {  
+               "sort":"Salvatore, R. A.",
+               "id":4605,
+               "name":"R. A. Salvatore"
+            },
+            {  
+               "sort":"Durham, David Anthony",
+               "id":5184,
+               "name":"David Anthony Durham"
+            },
+            {  
+               "sort":"Carey, Jacqueline",
+               "id":10796,
+               "name":"Jacqueline Carey"
+            },
+            {  
+               "sort":"Novik, Naomi",
+               "id":15256,
+               "name":"Naomi Novik"
+            },
+            {  
+               "sort":"Brooks, Terry",
+               "id":15431,
+               "name":"Terry Brooks"
+            },
+            {  
+               "sort":"Lawrence, Mark",
+               "id":15990,
+               "name":"Mark Lawrence"
+            },
+            {  
+               "sort":"Rothfuss, Patrick",
+               "id":18253,
+               "name":"Patrick Rothfuss"
+            },
+            {  
+               "sort":"Brett, Peter V.",
+               "id":18767,
+               "name":"Peter V. Brett"
+            },
+            {  
+               "sort":"Speakman, Shawn",
+               "id":21058,
+               "name":"Shawn Speakman"
+            }
+         ],
+         "filetypes":[  
+            {  
+               "description":"",
+               "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":56911,
+         "tags":[  
+
+         ],
+         "slug":""
+      }
+   ]
+}          "id":1,
+               "name":"epub"
+            }
+         ],
+         "id":56911,
+         "tags":[  
+
+         ],
+         "slug":""
+      }
+   ]
+}

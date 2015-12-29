@@ -102,6 +102,7 @@ class Index(View):
         serialized_data = json.dumps({'booklist': booklist, 'carousel': carousel,'rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
 
+
 class BookishLogin(View):
     def get(self, request):
         thisUser = User.objects.filter(id = request.user.id)[0]
