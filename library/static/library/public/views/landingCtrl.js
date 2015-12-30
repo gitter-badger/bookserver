@@ -123,6 +123,11 @@
   };
   
   function DialogController($scope, $mdDialog) {
+      
+      var self = $scope;
+      
+      
+      
   $scope.hide = function() {
     $mdDialog.hide();
   };
