@@ -5,8 +5,8 @@ var app = angular.module('takeWing', ['ngMaterial', 'ui.router']);
 		
 		$stateProvider
 			.state('landing', {
-				url: '/landing',
-				templateUrl: 'views/landing.html',
+				url: angular_url+'/landing',
+				templateUrl: angular_url+'/views/landing.html',
 				controller: 'landingCtrl',
 				controllerAs: 'ldCtrl'
 			})
