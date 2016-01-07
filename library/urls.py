@@ -18,6 +18,5 @@ urlpatterns = patterns('',
     url(r'^bookish/user$', BookishLogin.as_view()),
     url(r'^bookish/book$', BookishUpload.as_view()), 
     url(r'^$', Catalog.as_view()),
-	url(r'^cat', TemplateView.as_view(template_name='static/library/public/views/landing.html'),
-    name='cat'),
+    url(r'^cat', TemplateView.as_view(template_name='static/library/public/views/landing.html'),name='cat'),
 )
