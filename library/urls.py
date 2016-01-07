@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 from library.views import BookList, BookDetail, AuthorList, AuthorDetail, Catalog, Index, BookishLogin, BookishUpload 
 
 
