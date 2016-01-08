@@ -191,7 +191,7 @@ class Autocomplete(View):
                 total_items = Book.objects.aggregate(Max('id'))['id__max']
                 if len(search_words) > 1 and search_words[1] < total_items:
 				    result_list =['<random> %s' %filter_search]
-                else 
+                else: 
 				    result_list =['<random> %d' %total_items]
             elif (search_words[0] in "<Author>"):
                 result_list = ["<Author> %s" %author.name for author in Author.objects.filter(__name=filter_search)[:4]]
