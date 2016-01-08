@@ -195,6 +195,7 @@ class Autocomplete(View):
                 else: 
 				    result_list =['<random> %d' %total_items]
             elif (search_words[0] in "<Author>"):
+                here = 0
                 result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__startswith=filter_search)[:2]] + \
                               ["<Author> %s" %author.sort for author in Author.objects.filter(sort__startswith=filter_search)[:1]]
             elif (search_words[0] in "<Title>"):
@@ -202,11 +203,12 @@ class Autocomplete(View):
             elif (search_words[0] in "<Series>"):
                 result_list = ["<Series> %s"%series.name for series in series.objects.filter(name__startswith=filter_search)[:4]]
         if not result_list:
+            here = 1
             result_list = [author.name for author in Author.objects.filter(name__startswith=search_term)[:1]] + \
                           [author.sort for author in Author.objects.filter(sort__startswith=search_term)[:1]] + \
 		                  [book.title for book in Book.objects.filter(title__startswith=search_term)[:1]] + \
 				    	  [series.name for series in Series.objects.filter(name__startswith=search_term)[:1]]
-        serialized_data = json.dumps({"result_list":result_list,'debug':{'search_term':search_term,'search_words':search_words}})
+        serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
     
     
