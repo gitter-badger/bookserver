@@ -35,7 +35,7 @@
   
   <md-content style="height: 600px;">
     <section>
-      <md-subheader class="md-primary">Your {{book.length}} books!</md-subheader>
+      <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
       <md-list layout-padding layout-fill>
         <md-list-item class="md-3-line" ng-repeat="book in books | orderBy: 'title'">
             <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
