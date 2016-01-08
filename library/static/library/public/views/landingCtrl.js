@@ -15,21 +15,7 @@
     // ******************************
     // Internal methods
     // ******************************
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
-    function querySearch (query) {
-      var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
-          deferred;
-      if (self.simulateQuery) {
-        deferred = $q.defer();
-        $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-        return deferred.promise;
-      } else {
-        return results;
-      }
-    }
+
 	function searchCatalog (query){
 		webServices.getBooks(query).then(function(response){ 
             $scope.books = response; //Assign data received to $scope.data
@@ -51,15 +37,6 @@
 	  searchCatalog(item);
     }
 
-    /**
-     * Create filter function for a query string
-     */
-    function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(state) {
-        return (state.value.indexOf(lowercaseQuery) === 0);
-      };
-    }
     
     $scope.showConfirm = function(ev) {
     // Appending dialog to document.body to cover sidenav in docs app
