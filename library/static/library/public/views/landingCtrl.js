@@ -5,8 +5,7 @@
     self.simulateQuery = false;
     self.isDisabled    = false;
     // list of `state` value/display objects
-    self.states        = loadAll();
-    self.querySearch   = querySearch;
+    self.getMatches   = getMatches;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.newState = newState;
