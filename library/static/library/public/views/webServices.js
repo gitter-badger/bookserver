@@ -13,7 +13,7 @@ angular.module('takeWing').factory('webServices',['$http',function($http){
                                   value: result,
                                   display: result
                                 };   
-                            )};
+                            });
                 });
             }
         }
