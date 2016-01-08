@@ -10,7 +10,7 @@ from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from itertools import chain
-from library.models import Book, Author, BookFile,Bookish
+from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
 from random import shuffle, randint
 import requests as basic_request
@@ -180,7 +180,31 @@ class BookishUpload(View):
         #serialized_data = json.dumps({"test":"success"})
         return HttpResponse(serialized_data, content_type="application/json")
             
-        
+class Autocomplete(View):
+    def get(self, request):
+        search_term = request.GET.get('s', '')
+        search_words = search_term.split(' ')
+        filter_search = ' '.join(search_words[1:])
+        rand_ids = []
+		if search_words[0].startswith('<'):
+            if (search_words[0] in "<random>"):
+                total_items = Book.objects.aggregate(Max('id'))['id__max']
+                if len(search_words) > 1 and search_words[1] < total_items:
+				    result_list =['<random> %s' %filter_search]
+                else 
+				    result_list =['<random> %d' %total_items]
+            elif (search_words[0] in "<Author>"):
+                result_list = ["<Author> %s" %author.name for author in Author.objects.filter(__name=filter_search)[:4]]
+            elif (search_words[0] in "<Title>"):
+                result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title=filter_search)[:4]]
+            elif (search_words[0] in "<Series>"):
+                result_list = ["<Series> %s"series.name for series in series.objects.filter(name=filter_search)[:4]]
+        if not result_list:
+            result_list = [author.name for author in Author.objects.filter(name=search_term)[:1]] + \
+		                  [book.title for book in Book.objects.filter(title=search_term)[:1]] + \
+				    	  [series.name for series in series.objects.filter(name=search_term)[:1]]
+        serialized_data = json.dumps(result_list)
+        return HttpResponse(serialized_data, content_type="application/json")    
     
     
     

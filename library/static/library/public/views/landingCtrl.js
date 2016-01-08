@@ -31,11 +31,25 @@
         return results;
       }
     }
+	function searchCatalog (query){
+		webServices.getBooks(query).then(function(response){ 
+            $scope.books = response; //Assign data received to $scope.data
+        });
+	}
+	function getMatches(text){
+		deferred = $q.defer();
+		webServices.getAutocomplete(text).then(function(response){ 
+            deffered.resolve(response); 
+        });
+		return deferred.promise;
+		
+	}
     function searchTextChange(text) {
       $log.info('Text changed to ' + text);
     }
     function selectedItemChange(item) {
       $log.info('Item changed to ' + JSON.stringify(item));
+	  searchCatalog(item);
     }
     /**
      * Build `states` list of key/value pairs
