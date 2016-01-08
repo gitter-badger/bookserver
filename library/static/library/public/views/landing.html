@@ -14,7 +14,7 @@
           md-selected-item-change="ldCtrl.selectedItemChange(item)"
           md-items="item in ldCtrl.getMatches(ldCtrl.searchText)"
           md-item-text="item.display"
-          md-min-length="4"
+          md-delay="300"
           placeholder="Search - <random> # for random books">
         <md-item-template>
           <span md-highlight-text="ldCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
