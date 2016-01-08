@@ -38,7 +38,7 @@
 	function getMatches(text){
 		deferred = $q.defer();
 		webServices.getAutocomplete(text).then(function(response){ 
-            deffered.resolve(response); 
+            deferred.resolve(response); 
         });
 		return deferred.promise;
 		
