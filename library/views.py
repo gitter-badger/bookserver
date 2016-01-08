@@ -195,8 +195,8 @@ class Autocomplete(View):
                 else: 
 				    result_list =['<random> %d' %total_items]
             elif (search_words[0] in "<Author>"):
-                result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__startswith=filter_search)[:2] + \
-                              [author.sort for author in Author.objects.filter(sort__startswith=search_term)[:1]]
+                result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__startswith=filter_search)[:2]] + \
+                              ["<Author> %s" %author.sort for author in Author.objects.filter(sort__startswith=filter_search)[:1]]
             elif (search_words[0] in "<Title>"):
                 result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title__startswith=filter_search)[:4]]
             elif (search_words[0] in "<Series>"):
