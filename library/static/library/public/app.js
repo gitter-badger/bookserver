@@ -1,4 +1,7 @@
-var app = angular.module('takeWing', ['ngMaterial', 'ui.router']);
+var app = angular.module('takeWing', ['ngMaterial', 'ui.router']).config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+	.dark()
+});
 
 	app.config(function($stateProvider, $urlRouterProvider){
 		$urlRouterProvider.otherwise('/landing')
