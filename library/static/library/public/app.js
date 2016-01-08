@@ -1,6 +1,7 @@
 var app = angular.module('takeWing', ['ngMaterial', 'ui.router']).config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-	.dark()
+	.primaryPallette('indigo')
+	.accentPallette('pink')
 });
 
 	app.config(function($stateProvider, $urlRouterProvider){
