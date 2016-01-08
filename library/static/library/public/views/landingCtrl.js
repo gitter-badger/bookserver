@@ -1,5 +1,5 @@
 (function(){
-	angular.module('takeWing').controller('landingCtrl', function($scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia){
+	angular.module('takeWing').controller('landingCtrl', function(webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia){
 		
 		var self = this;
     self.simulateQuery = false;
