@@ -190,7 +190,7 @@ class Autocomplete(View):
         if search_words[0].startswith('<'):
             if (search_words[0] in "<random>"):
                 total_items = Book.objects.aggregate(Max('id'))['id__max']
-                if len(search_words) > 1 and search_words[1] < total_items:
+                if len(search_words) > 1 and int(search_words[1]) < total_items:
 				    result_list =['<random> %s' %filter_search]
                 else: 
 				    result_list =['<random> %d' %total_items]
