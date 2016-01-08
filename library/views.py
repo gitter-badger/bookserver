@@ -198,7 +198,7 @@ class Autocomplete(View):
             elif (search_words[0] in "<Title>"):
                 result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title=filter_search)[:4]]
             elif (search_words[0] in "<Series>"):
-                result_list = ["<Series> %s"series.name for series in series.objects.filter(name=filter_search)[:4]]
+                result_list = ["<Series> %s"%series.name for series in series.objects.filter(name=filter_search)[:4]]
         if not result_list:
             result_list = [author.name for author in Author.objects.filter(name=search_term)[:1]] + \
 		                  [book.title for book in Book.objects.filter(title=search_term)[:1]] + \
