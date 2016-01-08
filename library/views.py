@@ -204,7 +204,7 @@ class Autocomplete(View):
             result_list = [author.name for author in Author.objects.filter(name=search_term)[:1]] + \
 		                  [book.title for book in Book.objects.filter(title=search_term)[:1]] + \
 				    	  [series.name for series in series.objects.filter(name=search_term)[:1]]
-        serialized_data = json.dumps({"result_list":result_list,'debug':{'search_term':search_term,'search_words':search_words})
+        serialized_data = json.dumps({"result_list":result_list,'debug':{'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
     
     
