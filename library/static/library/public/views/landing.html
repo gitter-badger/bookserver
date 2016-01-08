@@ -11,9 +11,10 @@
           md-selected-item="ldCtrl.selectedItem"
           md-search-text-change="ldCtrl.searchTextChange(ldCtrl.searchText)"
           md-search-text="ldCtrl.searchText"
-          md-selected-item-change="ldCtrl.selectedItemChange(item)"
+          md-selected-item-change="ldCtrl.selectedItemChange(ldCtrl.searchText)"
           md-items="item in ldCtrl.getMatches(ldCtrl.searchText)"
           md-item-text="item.display"
+          md-select-on-match="true"
           md-delay="300"
           placeholder="Search - <random> # for random books">
         <md-item-template>
