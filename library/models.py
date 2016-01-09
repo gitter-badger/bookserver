@@ -33,7 +33,7 @@ class Book(models.Model):
     def as_dict(self):
         series_data = [{'id':book_series.series.id,'authors':[model_to_dict(author) for author in book_series.series.authors.all()], \
                         'summary':book_series.series.summary,'position':book_series.bookNumber} for book_series in self.book_series_set.all()]
-        files = [{'name':file.fileType.name, 'description':file.fileType.description,'location':file.fileLocation} for file in self.bookfile_set.all()]
+        files = [{'name':file.fileType.name, 'description':file.fileType.description,'location':file.fileLocation.url} for file in self.bookfile_set.all()]
         return {
             'id':self.id,
             'title':self.title,
