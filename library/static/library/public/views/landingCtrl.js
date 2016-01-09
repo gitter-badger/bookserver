@@ -38,7 +38,7 @@
     }
 
     
-    $scope.showConfirm = function(ev) {
+    $scope.showConfirm = function(ev, url) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Where would you like to send your book?')
@@ -51,7 +51,7 @@
     $mdDialog.show(confirm).then(function() {
       $scope.googleToast();
     }, function() {
-      location.href = ev.target.data.url
+      location.href = url
       $scope.downloadToast();
     });
   };
