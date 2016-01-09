@@ -31,9 +31,9 @@ class Book(models.Model):
     def __unicode__(self):
         return self.title
     def as_dict(self):
-        series_data = [{'id':series.id,'authors':[model_to_dict(author) for author in series.authors.all()], \
-                        'summary':series.summary,'position':series.position} for series in self.series.all()]
-        files = [{'name':type.name, 'description':type.description,'location':type.fileLocation} for type in self.bookfile_set.all()]
+        series_data = [{'id':book_series.series.id,'authors':[model_to_dict(author) for author in book_series.series.authors.all()], \
+                        'summary':book_series.series.summary,'position':book_series.position} for book_series in self.book_series_set.all()]
+        files = [{'name':file.fileType.name, 'description':file.fileType.description,'location':file.fileLocation} for file in self.bookfile_set.all()]
         return {
             'id':self.id,
             'title':self.title,
