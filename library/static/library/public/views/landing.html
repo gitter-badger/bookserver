@@ -50,7 +50,7 @@
                    {{serie.name}} #{{serie.position}} 
               </div>
              </div>
-                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='showConfirm($event, "{{type.url}}")'>
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='showConfirm($event, "type.url")'>
                   {{type.name}} 
     </md-button>
              
