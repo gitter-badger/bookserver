@@ -68,11 +68,8 @@ class Index(View):
             result_list = Book.objects.filter(series__name=filter_search)
         else:
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
-        booklist = render_to_string('library/booklistCompiler.html', {'object_list': result_list})
-        carousel = render_to_string('library/carouselCompiler.html', {'object_list': result_list})
-        
         rawdata = [obj.as_dict() for obj in result_list]
-        serialized_data = json.dumps({'booklist': booklist, 'carousel': carousel,'rawdata':rawdata})
+        serialized_data = json.dumps('rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
     def post(self, request):
         #Need to pull search term here filter author, series, and title off 
