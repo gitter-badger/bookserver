@@ -31,16 +31,19 @@ class Book(models.Model):
     def __unicode__(self):
         return self.title
     def as_dict(self):
+        series_data = [{'id':series.id,'authors':[model_to_dict(author) for author in series.authors.all()], \
+                        'summary':series.summary,'position':series.position} for series in self.series.all()]
+        files = [{'name':type.name, 'description':type.description,'location':type.fileLocation} for type in self.filetypes.all()]
         return {
             'id':self.id,
             'title':self.title,
             'authors':[model_to_dict(author) for author in self.authors.all()],
             'publisher':self.publisher,
-            'series':[model_to_dict(series) for series in self.series.all()],
+            'series':series_data,
             'tags':[model_to_dict(tag) for tag in self.tags.all()],
             'slug':self.slug,
             'isbn':self.isbn,
-            'filetypes':[model_to_dict(filetype) for filetype in self.fileTypes.all()],
+            'filetypes':files,
             'coverurl':self.cover.url
             }
 class book_series(models.Model):
@@ -69,6 +72,7 @@ class Series(models.Model):
     summary = models.TextField(blank = True)
     def __unicode__(self):
         return self.name
+  
     
 class Tag(models.Model):
     id = models.AutoField(primary_key=True)

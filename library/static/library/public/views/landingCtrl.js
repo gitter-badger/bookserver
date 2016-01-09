@@ -42,7 +42,7 @@
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Where would you like to send your book?')
-          .textContent('Please click outside of the box to close.')
+          .textContent('')
           .ariaLabel('Lucky day')
           .targetEvent(ev)
           .ok('Google')
@@ -51,6 +51,7 @@
     $mdDialog.show(confirm).then(function() {
       $scope.googleToast();
     }, function() {
+      location.href = ev.target.data.url
       $scope.downloadToast();
     });
   };
@@ -66,6 +67,7 @@
     
      $scope.downloadToast = function() {
     $mdToast.show(
+
       $mdToast.simple()
         .textContent('Your book download has started!')
         .position('bottom right')
