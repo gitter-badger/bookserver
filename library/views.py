@@ -69,7 +69,7 @@ class Index(View):
         else:
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
         rawdata = [obj.as_dict() for obj in result_list]
-        serialized_data = json.dumps('rawdata':rawdata})
+        serialized_data = json.dumps({'rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
     def post(self, request):
         #Need to pull search term here filter author, series, and title off 
