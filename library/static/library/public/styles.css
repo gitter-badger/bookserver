@@ -5,3 +5,11 @@ margin-bottom:0px;
 .author{
 margin-top:-8px;
 }
+
+.bookIcon{
+   width: 5em;
+   height: 7em;
+   background: green;
+   margin-right: 1em;
+   margin-top: .75em;
+}
