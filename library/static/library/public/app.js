@@ -10,7 +10,8 @@ var app = angular.module('takeWing', ['ngMaterial', 'ui.router']).config(functio
 		$stateProvider
 			.state('landing', {
 				url: '/landing',
-				templateUrl: angular_url+'/views/landing.html',
+				// templateUrl: angular_url+'/views/landing.html', // this needs to be uncommented for production
+            templateUrl: "bookserver/library/static/library/public/views/landing.html", // this is for local testing
 				controller: 'landingCtrl',
 				controllerAs: 'ldCtrl'
 			})
