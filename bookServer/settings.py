@@ -17,8 +17,8 @@ DATABASES = {
         'NAME': 'library',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'marian',
-        'PASSWORD': 'librarian',
-        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PASSWORD': 'airGreenSolSand',
+        'HOST': 'mydb',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
@@ -52,7 +52,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/var/books/'
+MEDIA_ROOT = '/opt/django/persistent/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -63,7 +63,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/var/www/static/'
+STATIC_ROOT = '/opt/django/volatile/static/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -85,7 +85,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY =''
+SECRET_KEY ='+AymMkh47.Q.u398dIcLYJV%XiIAtwvRO5LQ:LRl:"?:MsXyQ&wq7:3;s.^v#0Hb'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -171,9 +171,9 @@ LOGGING = {
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = ''
+EMAIL_HOST_USER = 'librarian@takewing.org'
+EMAIL_HOST_PASSWORD = 'fireBlueJupiterStone'
+DEFAULT_FROM_EMAIL = 'librarian@takewing.org'
 
 HAYSTACK_CONNECTIONS = {
     'default': {

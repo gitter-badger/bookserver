@@ -1,7 +1,7 @@
 <!--<div layout="column" flex layout-fill ng-cloak>-->
   <md-toolbar md-scroll-shrink layout="row" layout-wrap  >
     
-    <div class="md-toolbar-tools" flex="25" flex-xs="66" flex-order-xs="1" layout-align="start" >TakeWing Library</div>
+    <div class="md-toolbar-tools" flex="25" flex-xs="66" flex-order-xs="1" layout-align="start" >Winged Library</div>
     
     
     <div class="md-toolbar-tools" flex-order-xs="3" flex-xs="100" flex="50" layout-align="center">
@@ -10,17 +10,18 @@
           flex-xs="100"
           md-selected-item="ldCtrl.selectedItem"
           md-search-text-change="ldCtrl.searchTextChange(ldCtrl.searchText)"
-          md-search-text="ctrl.searchText"
-          md-selected-item-change="ldCtrl.selectedItemChange(item)"
-          md-items="item in ldCtrl.querySearch(ldCtrl.searchText)"
+          md-search-text="ldCtrl.searchText"
+          md-selected-item-change="ldCtrl.selectedItemChange(ldCtrl.searchText)"
+          md-items="item in ldCtrl.getMatches(ldCtrl.searchText)"
           md-item-text="item.display"
-          md-min-length="0"
-          placeholder="What is your favorite book?">
+          md-select-on-match="true"
+          md-delay="300"
+          placeholder="Search - <random> # for random books">
         <md-item-template>
           <span md-highlight-text="ldCtrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
         </md-item-template>
         <md-not-found>
-          No books matching "{{ctrl.searchText}}" were found.
+          No books matching "{{ldCtrl.searchText}}" were found.
           <a ng-click="ldCtrl.newState(ldCtrl.searchText)">Find a random one!</a>
         </md-not-found>
       </md-autocomplete>
@@ -35,22 +36,21 @@
   
   <md-content style="height: 600px;">
     <section>
-      <md-subheader class="md-primary">Your books!</md-subheader>
+      <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
       <md-list layout-padding layout-fill>
         <md-list-item class="md-3-line" ng-repeat="book in books | orderBy: 'title'">
-            <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+          <img ng-src="{{book.coverurl}}" class="md-avatar" alt="{{book.title}}">
             <div class="md-list-item-text" layout="row" layout-sm="column" layout-xs="column" >
              <div flex="50" flex-xs="100">
               <h2>{{book.title}}</h2>
-              
-                   <md-button class="md-warn" ng-click="showAdvanced($event)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
+                   <md-button class="md-warn author" ng-click="showAdvanced($event)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
                  {{author.name}}
     </md-button>
               <div ng-repeat="serie in book.series">
                    {{serie.name}} #{{serie.position}} 
               </div>
              </div>
-                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click="showConfirm($event)">
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='showConfirm($event, type.url)'>
                   {{type.name}} 
     </md-button>
              
@@ -79,7 +79,7 @@
       <md-subheader>Read Messages</md-subheader>
       <md-list layout="column" layout-padding>
         <md-list-item class="md-3-line" ng-repeat="message in messages">
-          <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+          <img ng-src="{{book.coverurl}}" class="md-avatar" alt="{{book.title}}">
           <div class="md-list-item-text">
             <h3>{{message.what}}</h3>
             <h4>{{message.who}}</h4>

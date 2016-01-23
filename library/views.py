@@ -5,18 +5,19 @@ from django.db.models.base import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-from django.utils import simplejson
+
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from itertools import chain
-from library.models import Book, Author, BookFile,Bookish
+from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
 from random import shuffle, randint
 import requests as basic_request
 import re
 import urllib
 import urllib2
+import json
         
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
@@ -46,6 +47,30 @@ class Catalog(ListView):
         return 1
 
 class Index(View):
+    def get(self, request):
+        #Need to pull search term here filter author, series, and title off 
+        #of it and then compiler dataset for templates
+        search_term = request.GET.get('s', '')
+        search_words = search_term.split(' ')
+        filter_search = ' '.join(search_words[1:])
+        rand_ids = []
+        if (search_words[0] == "<random>"):
+            total_items = Book.objects.aggregate(Max('id'))['id__max']
+            for x in range (0, int(search_words[1])):
+                rand_ids.append(randint(0,total_items))
+            
+            result_list = Book.objects.filter(id__in=rand_ids)
+        elif (search_words[0] == "<Author>"):
+            result_list = Book.objects.filter(authors__name=filter_search)
+        elif (search_words[0] == "<Title>"):
+            result_list = Book.objects.filter(title=filter_search)
+        elif (search_words[0] == "<Series>"):
+            result_list = Book.objects.filter(series__name=filter_search)
+        else:
+            result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
+        rawdata = [obj.as_dict() for obj in result_list]
+        serialized_data = json.dumps({'rawdata':rawdata})
+        return HttpResponse(serialized_data, content_type="application/json")
     def post(self, request):
         #Need to pull search term here filter author, series, and title off 
         #of it and then compiler dataset for templates
@@ -69,8 +94,11 @@ class Index(View):
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
         booklist = render_to_string('library/booklistCompiler.html', {'object_list': result_list})
         carousel = render_to_string('library/carouselCompiler.html', {'object_list': result_list})
-        serialized_data = simplejson.dumps({'booklist': booklist, 'carousel': carousel})
-        return HttpResponse(serialized_data, mimetype="application/json")
+        
+        rawdata = [obj.as_dict() for obj in result_list]
+        serialized_data = json.dumps({'booklist': booklist, 'carousel': carousel,'rawdata':rawdata})
+        return HttpResponse(serialized_data, content_type="application/json")
+
 
 class BookishLogin(View):
     def get(self, request):
@@ -81,8 +109,8 @@ class BookishLogin(View):
                 askLogin = False
         except ObjectDoesNotExist:
             askLogin = True
-        serialized_data = simplejson.dumps({'askLogin': askLogin})
-        return HttpResponse(serialized_data, mimetype="application/json")
+        serialized_data = json.dumps({'askLogin': askLogin})
+        return HttpResponse(serialized_data, content_type="application/json")
     
     def post(self, request):
         url = 'https://booki.sh/sign/in'
@@ -116,10 +144,10 @@ class BookishLogin(View):
             except ObjectDoesNotExist:
                 thisAccount = Bookish(user=thisUser, login_cookie=cookies)
                 thisAccount.save()
-            serialized_data = simplejson.dumps({'cookies': cookies, 'save_cookie':thisUser.bookish.login_cookie})
+            serialized_data = json.dumps({'cookies': cookies, 'save_cookie':thisUser.bookish.login_cookie})
         else:
-            serialized_data = simplejson.dumps({'remtok': 'Invalid', 'cookies': cookiesDefined, 'page':the_page, 'data':data2})
-        return HttpResponse(serialized_data, mimetype="application/json")
+            serialized_data = json.dumps({'remtok': 'Invalid', 'cookies': cookiesDefined, 'page':the_page, 'data':data2})
+        return HttpResponse(serialized_data, content_type="application/json")
         
 class BookishUpload(View):
     def post(self, request):
@@ -135,8 +163,8 @@ class BookishUpload(View):
         form = extract_form_fields(soup)
         if 'commit' in form:
             if form['commit'] == "Sign in":
-                serialized_data = simplejson.dumps({'askLogin': True, 'remtok': remtok})
-                return HttpResponse(serialized_data, mimetype="application/json")
+                serialized_data = json.dumps({'askLogin': True, 'remtok': remtok})
+                return HttpResponse(serialized_data, content_type="application/json")
 
         form['file'] = open('c:\\media_root\\' + request.POST.get('filename'), 'rb')
         form2 = form.items()
@@ -145,11 +173,40 @@ class BookishUpload(View):
         result = basic_request.post(upload_url, files=form2, allow_redirects=False, headers=headers)
         result2 = basic_request.get(result.headers['location'], headers = headers, cookies=cookies)
         status = re.findall('status\\\":\\\"(.*?)\\\",',result2.text)
-        serialized_data = simplejson.dumps({'status':status})
-        #serialized_data = simplejson.dumps({"test":"success"})
-        return HttpResponse(serialized_data, mimetype="application/json")
+        serialized_data = json.dumps({'status':status})
+        #serialized_data = json.dumps({"test":"success"})
+        return HttpResponse(serialized_data, content_type="application/json")
             
-        
+class Autocomplete(View):
+    def get(self, request):
+        search_term = request.GET.get('s', '')
+        search_words = search_term.split(' ')
+        filter_search = ' '.join(search_words[1:])
+        rand_ids = []
+        result_list = None
+        if search_words[0].startswith('<'):
+            if (search_words[0] in "<random>"):
+                total_items = Book.objects.aggregate(Max('id'))['id__max']
+                if len(search_words) > 1 and int(search_words[1]) < total_items:
+				    result_list =['<random> %s' %filter_search]
+                else: 
+				    result_list =['<random> %d' %total_items]
+            elif (search_words[0] in "<Author>"):
+                here = 0
+                result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__istartswith=filter_search)[:2]] + \
+                              ["<Author> %s" %author.sort for author in Author.objects.filter(sort__istartswith=filter_search)[:1]]
+            elif (search_words[0] in "<Title>"):
+                result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title__istartswith=filter_search)[:4]]
+            elif (search_words[0] in "<Series>"):
+                result_list = ["<Series> %s"%series.name for series in series.objects.filter(name__istartswith=filter_search)[:4]]
+        if not result_list:
+            here = 1
+            result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:1]] + \
+                          [author.sort for author in Author.objects.filter(sort__istartswith=search_term)[:1]] + \
+		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:1]] + \
+				    	  [series.name for series in Series.objects.filter(name__istartswith=search_term)[:1]]
+        serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
+        return HttpResponse(serialized_data, content_type="application/json")    
     
     
     

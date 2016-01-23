@@ -1,12 +1,11 @@
 (function(){
-	angular.module('takeWing').controller('landingCtrl', function($scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia){
+	angular.module('takeWing').controller('landingCtrl', function(webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia){
 		
 		var self = this;
     self.simulateQuery = false;
     self.isDisabled    = false;
     // list of `state` value/display objects
-    self.states        = loadAll();
-    self.querySearch   = querySearch;
+    self.getMatches   = getMatches;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.newState = newState;
@@ -16,60 +15,34 @@
     // ******************************
     // Internal methods
     // ******************************
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
-    function querySearch (query) {
-      var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
-          deferred;
-      if (self.simulateQuery) {
-        deferred = $q.defer();
-        $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-        return deferred.promise;
-      } else {
-        return results;
-      }
-    }
+
+	function searchCatalog (query){
+		webServices.getBooks(query).then(function(response){ 
+            $scope.books = response; //Assign data received to $scope.data
+        });
+	}
+	function getMatches(text){
+		deferred = $q.defer();
+		webServices.getAutocomplete(text).then(function(response){ 
+            deferred.resolve(response); 
+        });
+		return deferred.promise;
+		
+	}
     function searchTextChange(text) {
       $log.info('Text changed to ' + text);
     }
     function selectedItemChange(item) {
       $log.info('Item changed to ' + JSON.stringify(item));
+	  searchCatalog(item);
     }
-    /**
-     * Build `states` list of key/value pairs
-     */
-    function loadAll() {
-      var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
-      return allStates.split(/, +/g).map( function (state) {
-        return {
-          value: state.toLowerCase(),
-          display: state
-        };
-      });
-    }
-    /**
-     * Create filter function for a query string
-     */
-    function createFilterFor(query) {
-      var lowercaseQuery = angular.lowercase(query);
-      return function filterFn(state) {
-        return (state.value.indexOf(lowercaseQuery) === 0);
-      };
-    }
+
     
-    $scope.showConfirm = function(ev) {
+    $scope.showConfirm = function(ev, url) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Where would you like to send your book?')
-          .textContent('Please click outside of the box to close.')
+          .textContent('')
           .ariaLabel('Lucky day')
           .targetEvent(ev)
           .ok('Google')
@@ -78,6 +51,7 @@
     $mdDialog.show(confirm).then(function() {
       $scope.googleToast();
     }, function() {
+      location.href = url
       $scope.downloadToast();
     });
   };
@@ -93,6 +67,7 @@
     
      $scope.downloadToast = function() {
     $mdToast.show(
+
       $mdToast.simple()
         .textContent('Your book download has started!')
         .position('bottom right')

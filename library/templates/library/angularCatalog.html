@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+	<html>
+		
+		<head>
+			<title>Winged Library</title>
+			<!--Css-->
+			<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+			<link rel="stylesheet" href="{% static 'library/public/bower_components/angular-material/angular-material.min.css'%}">
+			<link rel="stylesheet" href="{% static 'library/public/styles.css'%}">			
+		</head>
+		
+		<body ng-app="takeWing">
+			
+			<div ui-view></div>
+			
+			<!--Jquery-->
+			<script language='javascript'>
+				var angular_url="{% static 'library/public/app.js'%}"
+				angular_url = angular_url.replace('app.js', ''); </script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+			<!--Angular-Material Files-->
+			<script src="{% static 'library/public/bower_components/angular/angular.min.js'%}"></script>
+			<script src="{% static 'library/public/bower_components/angular-aria/angular-aria.min.js'%}"></script>
+			<script src="{% static 'library/public/bower_components/angular-animate/angular-animate.min.js'%}"></script>
+			<script src="{% static 'library/public/bower_components/angular-material/angular-material.min.js'%}"></script>
+			
+			<!--UI Router-->
+			<script src="{% static 'library/public/bower_components/angular-ui-router/release/angular-ui-router.min.js'%}"></script>
+			
+			<!--custom files -->		
+			<script src="{% static 'library/public/app.js'%}"></script>
+			<script src="{% static 'library/public/views/landingCtrl.js'%}"></script>
+			<script src="{% static 'library/public/views/webServices.js'%}"></script>
+			<!--<script src="views/mainService.js"></script>-->
+			<!--<script src="view/Index.json"></script>
+		-->
+		</body>
+	</html>

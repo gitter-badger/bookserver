@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-from library.views import BookList, BookDetail, AuthorList, AuthorDetail, Catalog, Index, BookishLogin, BookishUpload 
+from django.views.generic import TemplateView
+from library.views import BookList, BookDetail, Autocomplete, AuthorList, AuthorDetail, Catalog, Index, BookishLogin, BookishUpload 
 
 
 # Uncomment the next two lines to enable the admin:
@@ -17,5 +18,7 @@ urlpatterns = patterns('',
     url(r'^index/$', Index.as_view()),
     url(r'^bookish/user$', BookishLogin.as_view()),
     url(r'^bookish/book$', BookishUpload.as_view()), 
-    url(r'^$', Catalog.as_view()),
+    url(r'^cat/$', Catalog.as_view()),
+	url(r'^auto/$', Autocomplete.as_view()),
+    url(r'^$', TemplateView.as_view(template_name='library/angularCatalog.html'),name='cat'),
 )
