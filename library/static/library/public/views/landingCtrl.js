@@ -81,7 +81,7 @@
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             controller: DialogController,
-            templateUrl: 'views/authorDialogTemp.html',
+            templateUrl: angular_url+'views/authorDialogTemp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
@@ -105,7 +105,7 @@
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             controller: DialogController,
-            templateUrl: 'views/download.dialog.temp.html',
+            templateUrl: angular_url+'views/download.dialog.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
