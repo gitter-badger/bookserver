@@ -56,7 +56,7 @@
          });
       };
 
-      $scope.googleToast = function () {
+      var googleToast = function () {
          $mdToast.show(
             $mdToast.simple()
                .textContent('Your book was sent to Google Books!')
@@ -86,6 +86,7 @@
             fullscreen: useFullScreen
          })
             .then(function (answer) { 
+               console.log(answer)
                $scope.status = 'You said the information was "' + answer + '".';
             }, function () {
                $scope.status = 'You cancelled the dialog.';
@@ -97,6 +98,37 @@
          });
       };
 
+
+       $scope.downloadDialog = function (ev, url) {
+         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+         $mdDialog.show({
+            controller: DialogController,
+            templateUrl: "bookserver/library/static/library/public/views/download.dialog.temp.html", //'views/download.dialog.temp.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: useFullScreen
+         })
+            .then(function (answer) { 
+              if (answer == 'Google')
+              {
+                  googleToast();
+                  console.log("google")
+              }else if( answer == 'Download')
+              {
+                location.href = url
+            $scope.downloadToast();  
+              }
+            }, function () {
+               $scope.status = 'You cancelled the dialog.';
+            });
+         $scope.$watch(function () {
+            return $mdMedia('xs') || $mdMedia('sm');
+         }, function (wantsFullScreen) {
+            $scope.customFullscreen = (wantsFullScreen === true);
+         });
+      };
+      
       function DialogController($scope, $mdDialog) {
 
          var self = $scope;

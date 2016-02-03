@@ -1,4 +1,4 @@
-<!--<div layout="column" flex layout-fill ng-cloak>-->
+<div layout="column" flex layout-fill ng-cloak>
   <md-toolbar md-scroll-shrink layout="row" layout-wrap  >
     
     <div class="md-toolbar-tools" flex="25" flex-xs="66" flex-order-xs="1" layout-align="start" >Winged Library</div>
@@ -34,7 +34,7 @@
   </md-toolbar>
   
   
-  <md-content style="height: 600px;">
+  <md-content style="height: auto;">
     <section>
       <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
       <md-list layout-padding layout-fill>
@@ -50,7 +50,7 @@
                    {{serie.name}} #{{serie.position}} 
               </div>
              </div>
-                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='showConfirm($event, type.url)'>
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='downloadDialog($event, type.url)'>
                   {{type.name}} 
     </md-button>
              
