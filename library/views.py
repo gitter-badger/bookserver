@@ -66,16 +66,21 @@ class Index(View):
             result_list = Book.objects.filter(series__name=filter_search)
         else:
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
+        coverData =[]
         for book in result_list:
+            coverData.append("Has Cover")
             if book.cover == 'none':
+                coverData[-1] = "Missing Cover Added"
                 title=urllib.quote(book.title)
                 author=urllib.quote(book.authors.first().name)
                 myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1"%(title,author)
                 response = basic_request.get(myUrl)
                 data = json.loads(response.text)
                 if 'totalItems' not in data:
+                    coverData[-1] = "API Limit"
                     continue
                 if not data['totalItems'] :
+                    coverData[-1] = "Book not Found"
                     book.cover = "none_google"
                     book.save()
                     continue
@@ -84,11 +89,12 @@ class Index(View):
                     image_content = ContentFile(basic_request.get(bookData['imageLinks']['thumbnail']).content)
                     book.cover.save("cover.jpg", image_content)
                 else:
+                    coverData[-1] = "No Covers at Google"
                     book.cover = "none_google"
                     book.save()
                     continue
         rawdata = [obj.as_dict() for obj in result_list]
-        serialized_data = json.dumps({'rawdata':rawdata})
+        serialized_data = json.dumps({'Test':coverData, 'rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
     def post(self, request):
         #Need to pull search term here filter author, series, and title off 
