@@ -48,8 +48,6 @@ class Catalog(ListView):
 
 class Index(View):
     def get(self, request):
-        #Need to pull search term here filter author, series, and title off 
-        #of it and then compiler dataset for templates
         search_term = request.GET.get('s', '')
         search_words = search_term.split(' ')
         filter_search = ' '.join(search_words[1:])
@@ -68,6 +66,25 @@ class Index(View):
             result_list = Book.objects.filter(series__name=filter_search)
         else:
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
+        for book in result_list:
+            if book.cover == 'none':
+                title=urllib.quote(book.title)
+                author=urllib.quote(book.authors.first().name)
+                myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1"%(title,author)
+                response = basic_request.get(myUrl)
+                data = json.loads(response.text)
+                if 'totalItems' not in data and not data['totalItems'] :
+                    book.cover = "none_google"
+                    book.save()
+                    continue
+                bookData = data['items'][0]['volumeInfo']
+                if 'imageLinks' in bookData:
+                    image_content = ContentFile(basic_request.get(bookData['imageLinks']['thumbnail']).content)
+                    book.cover.save("cover.jpg", image_content)
+                else:
+                    book.cover = "none_google"
+                    book.save()
+                    continue
         rawdata = [obj.as_dict() for obj in result_list]
         serialized_data = json.dumps({'rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
