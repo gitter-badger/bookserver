@@ -192,19 +192,19 @@ class Autocomplete(View):
 				    result_list =['<random> %s' %filter_search]
                 else: 
 				    result_list =['<random> %d' %total_items]
-            elif (search_words[0] in "<Author>"):
+            elif (search_words[0] in "<Author>" or search_words[0] in "<author>"):
                 here = 1
                 result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__istartswith=filter_search)[:2]] + \
                               ["<Author> %s" %author.sort for author in Author.objects.filter(sort__istartswith=filter_search)[:1]]
-            elif (search_words[0] in "<Title>"):
+            elif (search_words[0] in "<Title>" or search_words[0] in "<title>"):
                 result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title__istartswith=filter_search)[:4]]
-            elif (search_words[0] in "<Series>"):
+            elif (search_words[0] in "<Series>" or search_words[0] in "<series>"):
                 result_list = ["<Series> %s"%series.name for series in series.objects.filter(name__istartswith=filter_search)[:4]]
         if not result_list:
             here = 2
-            result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:1]] + \
+            result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:2]] + \
                           [author.sort for author in Author.objects.filter(sort__istartswith=search_term)[:1]] + \
-		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:1]] + \
+		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:2]] + \
 				    	  [series.name for series in Series.objects.filter(name__istartswith=search_term)[:1]]
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
