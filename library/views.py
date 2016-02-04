@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.db.models import Q, Max
@@ -18,7 +19,7 @@ import re
 import urllib
 import urllib2
 import json
-from __future__ import unicode_literals
+
 from django.core.files.base import ContentFile
         
 class AuthorList(ListView):
