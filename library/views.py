@@ -18,6 +18,8 @@ import re
 import urllib
 import urllib2
 import json
+from __future__ import unicode_literals
+from django.core.files.base import ContentFile
         
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
