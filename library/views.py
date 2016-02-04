@@ -179,6 +179,7 @@ class BookishUpload(View):
             
 class Autocomplete(View):
     def get(self, request):
+        here = 0
         search_term = request.GET.get('s', '')
         search_words = search_term.split(' ')
         filter_search = ' '.join(search_words[1:])
@@ -192,7 +193,7 @@ class Autocomplete(View):
                 else: 
 				    result_list =['<random> %d' %total_items]
             elif (search_words[0] in "<Author>"):
-                here = 0
+                here = 1
                 result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__istartswith=filter_search)[:2]] + \
                               ["<Author> %s" %author.sort for author in Author.objects.filter(sort__istartswith=filter_search)[:1]]
             elif (search_words[0] in "<Title>"):
@@ -200,7 +201,7 @@ class Autocomplete(View):
             elif (search_words[0] in "<Series>"):
                 result_list = ["<Series> %s"%series.name for series in series.objects.filter(name__istartswith=filter_search)[:4]]
         if not result_list:
-            here = 1
+            here = 2
             result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:1]] + \
                           [author.sort for author in Author.objects.filter(sort__istartswith=search_term)[:1]] + \
 		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:1]] + \
