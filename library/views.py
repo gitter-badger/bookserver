@@ -6,6 +6,7 @@ from django.db.models.base import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
+from django.conf import settings
 
 from django.views.generic import View
 from django.views.generic import ListView
@@ -21,7 +22,7 @@ import urllib2
 import json
 
 from django.core.files.base import ContentFile
-        
+
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
     
@@ -76,7 +77,7 @@ class Index(View):
                 coverData[-1] = "Missing Cover Added"
                 title=urllib.quote(book.title)
                 author=urllib.quote(book.authors.first().name)
-                myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1"%(title,author)
+                myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1&key=%s"%(title,author,settings.GOOGLE_BOOKS_API_KEY)
                 response = basic_request.get(myUrl)
                 data = json.loads(response.text)
                 if 'totalItems' not in data:
