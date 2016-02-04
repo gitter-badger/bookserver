@@ -73,7 +73,9 @@ class Index(View):
                 myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1"%(title,author)
                 response = basic_request.get(myUrl)
                 data = json.loads(response.text)
-                if 'totalItems' not in data and not data['totalItems'] :
+                if 'totalItems' not in data:
+                    continue
+                if not data['totalItems'] :
                     book.cover = "none_google"
                     book.save()
                     continue
