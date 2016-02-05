@@ -11,6 +11,7 @@
       self.newState = newState;
       
       $scope.nocover = "/media/noimage.jpg"
+      $scope.random = "<random> 20"
       
       function newState(state) {
          alert("Sorry! You'll need to create a Constituion for " + state + " first!");
