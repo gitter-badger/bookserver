@@ -21,7 +21,7 @@
    <md-content style="height: auto;">
       <section>
          <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
-         <md-progress-circular md-mode="indeterminate" ng-if="loading" layout-align="center"></md-progress-circular>
+         <md-progress-circular md-mode="indeterminate" ng-if="loading" id="progressBooks" layout-align="center"></md-progress-circular>
          <md-list layout-padding layout-wrap>
             <md-list-item class="md-3-line" ng-repeat="book in books | orderBy: 'title'">
                <img ng-src="{{book.coverurl}}" class="bookIcon" alt="{{book.title}}" onerror="this.src='/media/noImage.jpg'">
