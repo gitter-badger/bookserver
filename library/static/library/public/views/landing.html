@@ -23,7 +23,7 @@
          <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
          <md-list layout-padding layout-wrap>
             <md-list-item class="md-3-line" ng-repeat="book in books | orderBy: 'title'">
-               <img ng-src="{{book.coverurl}}" class="bookIcon" alt="{{nocover}}">
+               <img ng-src="{{book.coverurl}}" class="bookIcon" alt="{{book.title}}" onerror="this.src='{{nocover}}'">
                <div class="md-list-item-text" layout="row" layout-sm="column" layout-xs="column">
                   <div flex="50" flex-xs="100">
                      <h2>{{book.title}}</h2>
