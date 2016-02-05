@@ -24,7 +24,7 @@
       function searchCatalog(query) {
          $scope.loading = true;
          webServices.getBooks(query).then(function (response) {
-            self.loading = false;
+            $scope.loading = false;
             $scope.books = response; //Assign data received to $scope.data
             console.log($scope.books)
          });
