@@ -10,6 +10,8 @@
       self.searchTextChange = searchTextChange;
       self.newState = newState;
       
+      $scope.nocover = "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwii-5HBrN_KAhWKXh4KHVx4ARcQjRwIBw&url=http%3A%2F%2Fmkenny71.deviantart.com%2Ffavourites%2F64330860%2FUnicorns-Pegasus-and-Alicorns&psig=AFQjCNEDI03P-1rIauj1I4i6tEB9vmGqFg&ust=1454717870376363"
+      
       function newState(state) {
          alert("Sorry! You'll need to create a Constituion for " + state + " first!");
       }
