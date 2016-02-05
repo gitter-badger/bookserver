@@ -77,9 +77,10 @@
             );
       };
 
-      $scope.showAdvanced = function (ev) {
+      $scope.showAdvanced = function (ev, idx) {
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
+            locals: idx,
             controller: DialogController,
             templateUrl: angular_url+'views/authorDialogTemp.html',
             parent: angular.element(document.body),
@@ -133,15 +134,15 @@
       function DialogController($scope, $mdDialog) {
 
          var self = $scope;
-
+         
          $scope.hide = function () {
             $mdDialog.hide();
          };
          $scope.cancel = function () {
             $mdDialog.cancel();
          };
-         $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
+         $scope.answer = function (idx) {
+            $mdDialog.hide(idx);
          };
       }
 
