@@ -9,7 +9,7 @@
       self.selectedItemChange = selectedItemChange;
       self.searchTextChange = searchTextChange;
       self.newState = newState;
-      self.loading = false;
+      $scope.loading = false;
       
       $scope.nocover = "/media/noimage.jpg"
       $scope.random = "<random> 20"
@@ -22,7 +22,7 @@
       // ******************************
 
       function searchCatalog(query) {
-         self.loading = true;
+         $scope.loading = true;
          webServices.getBooks(query).then(function (response) {
             self.loading = false;
             $scope.books = response; //Assign data received to $scope.data
