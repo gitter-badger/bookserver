@@ -75,6 +75,7 @@
             );
       };
 
+//Author dialog
       $scope.showAdvanced = function (ev, idx) {
          $mdDialog.show({
             locals: idx,
@@ -83,7 +84,6 @@
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
          })
             .then(function (answer) {
                console.log(answer)
