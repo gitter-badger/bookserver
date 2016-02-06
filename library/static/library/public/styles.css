@@ -2,6 +2,12 @@ h2 {
 margin-bottom:0px;
 -webkit-margin-after: 0.0em;
 }
+
+#progressBooks{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .author{
 margin-top:-8px;
 }

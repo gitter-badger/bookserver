@@ -10,7 +10,7 @@
             </md-item-template>
             <md-not-found>
                No books matching "{{ldCtrl.searchText}}" were found.
-               <a ng-click="ldCtrl.newState(ldCtrl.searchText)">Find a random one!</a>
+               <a ng-click="ldCtrl.getMatches('<random> 20')">Find a random one!</a>
             </md-not-found>
          </md-autocomplete>
       </div>
@@ -21,20 +21,28 @@
    <md-content style="height: auto;">
       <section>
          <md-subheader class="md-primary">Your {{books.length}} books!</md-subheader>
+         <md-progress-circular md-mode="indeterminate" ng-if="loading" id="progressBooks" layout-align="center"></md-progress-circular>
          <md-list layout-padding layout-wrap>
             <md-list-item class="md-3-line" ng-repeat="book in books | orderBy: 'title'">
-               <img ng-src="{{book.coverurl}}" class="bookIcon" alt="{{book.altCover}}">
+               <img ng-src="{{book.coverurl}}" class="bookIcon" alt="{{book.title}}" onerror="this.src='/media/noImage.jpg'">
                <div class="md-list-item-text" layout="row" layout-sm="column" layout-xs="column">
                   <div flex="50" flex-xs="100">
                      <h2>{{book.title}}</h2>
-                     <md-button class="md-warn author" ng-click="showAdvanced($event, $index)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
+                     <md-button class="md-warn author" ng-click="showAdvanced($event, author.name)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
                         {{author.name}}
                      </md-button>
-                     <div ng-repeat="serie in book.series">
+                  
+             <div>
+                
+                     <md-button ng-repeat="serie in book.series" ng-click="showAdvanced($event, serie.name)">
                         {{serie.name}} {{serie.position}}
-                     </div>
+                     </md-button>
+             </div>
                   </div>
-                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='downloadDialog($event, type.url)'>
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-if="type.name == 'epub'" ng-click='downloadDialog($event, type.url)'>
+                     {{type.name}}
+                  </md-button>
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-if="type.name == 'mobi'" ng-click='downloadDialog1($event, type.url)'>
                      {{type.name}}
                   </md-button>
                </div>
