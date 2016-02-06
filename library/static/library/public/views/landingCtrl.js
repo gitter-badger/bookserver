@@ -25,7 +25,7 @@
             console.log($scope.books)
          });
       }
-      
+
       function getMatches(text) {
          deferred = $q.defer();
          webServices.getAutocomplete(text).then(function (response) {
@@ -33,11 +33,11 @@
          });
          return deferred.promise;
       }
-      
+
       function searchTextChange(text) {
          $log.info('Text changed to ' + text);
       }
-      
+
       function selectedItemChange(item) {
          $log.info('Item changed to ' + JSON.stringify(item));
          searchCatalog(item);
@@ -45,7 +45,7 @@
 
   
 
-//google toast
+      //google toast
       var googleToast = function () {
          $mdToast.show(
             $mdToast.simple()
@@ -55,7 +55,7 @@
             );
       };
  
- //Kindle toast     
+      //Kindle toast     
       var kindleToast = function () {
          $mdToast.show(
             $mdToast.simple()
@@ -65,7 +65,7 @@
             );
       };
 
-// book download toast
+      // book download toast
       $scope.downloadToast = function () {
          $mdToast.show(
             $mdToast.simple()
@@ -75,12 +75,12 @@
             );
       };
 
-//Author dialog
+      //Author dialog
       $scope.showAdvanced = function (ev, idx) {
          $mdDialog.show({
             locals: idx,
             controller: DialogController,
-            templateUrl: angular_url+'views/authorDialogTemp.html',
+            templateUrl: angular_url + 'views/authorDialogTemp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
@@ -93,15 +93,14 @@
             });
       };
 
-//Epub and google file transfer dialog
+      //Epub and google file transfer dialog
       $scope.downloadDialog = function (ev, url) {
          $mdDialog.show({
             controller: DialogController,
-            templateUrl: angular_url+'views/download.dialog.temp.html',
+            templateUrl: angular_url + 'views/download.dialog.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
                googleToast();
@@ -110,22 +109,19 @@
                location.href = url
                $scope.downloadToast();
             }
-            
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
       }
 
-//Mobi or kindle file transfer dialog
-         $scope.downloadDialog1 = function (ev, url) {
-         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+      //Mobi or kindle file transfer dialog
+      $scope.downloadDialog1 = function (ev, url) {
          $mdDialog.show({
             controller: DialogController,
-            templateUrl: angular_url+'views/download.dialog1.temp.html',
+            templateUrl: angular_url + 'views/download.dialog1.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Kindle') {
                kindleToast();
@@ -133,8 +129,7 @@
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
-            } 
-
+            }
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
