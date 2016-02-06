@@ -83,6 +83,7 @@
          webServices.getBooks(authorName).then(function (response) {
             dialogBooks = response; //Assign data received to dialogBooks
          });
+         console.log(dialogBooks)
          $mdDialog.show({
             locals: { name: authorName,
                       books: dialogBooks },
@@ -145,6 +146,7 @@
       function DialogController($scope, $mdDialog, name, books) {
          $scope.name=name;
          $scope.authorBooks=books
+         console.log("books", books)
          
          $scope.hide = function () {
             $mdDialog.hide();
