@@ -147,6 +147,7 @@
          $scope.name=name;
          $scope.authorBooks=books
          console.log("books", books)
+         $scope.wiki = "http://en.wikipedia.org/wiki/" + name
          
          $scope.hide = function () {
             $mdDialog.hide();
