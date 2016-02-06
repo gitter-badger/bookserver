@@ -78,10 +78,14 @@
       };
 
       //Author dialog
-      $scope.showAdvanced = function (ev, name1) {
-         searchCatalog(name1)
+      $scope.showAdvanced = function (ev, authorName) {
+        var dialogBooks
+         webServices.getBooks(authorName).then(function (response) {
+            dialogBooks = response; //Assign data received to dialogBooks
+         });
          $mdDialog.show({
-            locals: { name: name1 },
+            locals: { name: authorName,
+                      books: dialogBooks },
             controller: DialogController,
             templateUrl: angular_url + 'views/authorDialogTemp.html',
             parent: angular.element(document.body),
@@ -138,7 +142,9 @@
          });
       };
 
-      function DialogController($scope, $mdDialog, name) {
+      function DialogController($scope, $mdDialog, name, books) {
+         $scope.name=name;
+         $scope.authorBooks=books
          
          $scope.hide = function () {
             $mdDialog.hide();
