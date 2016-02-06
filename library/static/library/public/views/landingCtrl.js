@@ -141,6 +141,7 @@
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
+      }
 
          $scope.downloadDialog1 = function (ev, url) {
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
@@ -165,13 +166,6 @@
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
-
-         $scope.$watch(function () {
-            return $mdMedia('xs') || $mdMedia('sm');
-         }, function (wantsFullScreen) {
-            $scope.customFullscreen = (wantsFullScreen === true);
-         });
-
       };
 
       function DialogController($scope, $mdDialog) {
@@ -189,5 +183,5 @@
          };
       }
 
-   })
+   });
 })();
