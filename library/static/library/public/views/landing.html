@@ -31,11 +31,13 @@
                      <md-button class="md-warn author" ng-click="showAdvanced($event, author.name)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
                         {{author.name}}
                      </md-button>
-                  </div>
-                  <div>
+                  
+             <div>
+                
                      <md-button ng-repeat="serie in book.series" ng-click="showAdvanced($event, serie.name)">
                         {{serie.name}} {{serie.position}}
                      </md-button>
+             </div>
                   </div>
                   <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-if="type.name == 'epub'" ng-click='downloadDialog($event, type.url)'>
                      {{type.name}}
