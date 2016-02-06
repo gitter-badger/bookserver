@@ -152,7 +152,7 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Kindle') {
-               googleToast();
+               kindleToast();
                console.log("kindle")
             } else if (answer == 'Download') {
                location.href = url
