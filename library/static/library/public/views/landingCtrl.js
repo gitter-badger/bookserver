@@ -135,8 +135,11 @@
          });
       };
 
-      function DialogController($scope, $mdDialog) {
-         var self = $scope;
+      function DialogController($scope, $mdDialog, idx) {
+        console.log('index', idx)
+        
+        
+        
          $scope.hide = function () {
             $mdDialog.hide();
          };
