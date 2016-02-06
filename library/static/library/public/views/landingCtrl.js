@@ -73,6 +73,15 @@
                .hideDelay(3000)
             );
       };
+      
+      var kindleToast = function () {
+         $mdToast.show(
+            $mdToast.simple()
+               .textContent('Your book was sent to Kindle Books!')
+               .position('bottom right')
+               .hideDelay(3000)
+            );
+      };
 
       $scope.downloadToast = function () {
          $mdToast.show(
@@ -125,6 +134,33 @@
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
+            } else if (answer == 'Kindle') {
+               kindleToast();
+               console.log("google")
+            }
+         }, function () {
+            $scope.status = 'You cancelled the dialog.';
+         });
+
+         $scope.downloadDialog1 = function (ev, url) {
+         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+         $mdDialog.show({
+            controller: DialogController,
+            templateUrl: angular_url+'views/download.dialog.temp.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: useFullScreen
+         }).then(function (answer) {
+            if (answer == 'Google') {
+               googleToast();
+               console.log("google")
+            } else if (answer == 'Download') {
+               location.href = url
+               $scope.downloadToast();
+            } else if (answer == 'Kindle') {
+               kindleToast();
+               console.log("google")
             }
          }, function () {
             $scope.status = 'You cancelled the dialog.';
