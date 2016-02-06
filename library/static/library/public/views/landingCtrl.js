@@ -80,9 +80,9 @@
       //Author dialog
       $scope.showAdvanced = function (ev, authorName) {
         var dialogBooks
-         webServices.getBooks(authorName).then(function (response) {
-            dialogBooks = response; //Assign data received to dialogBooks
-         });
+         // webServices.getBooks(authorName).then(function (response) {
+            // dialogBooks = response; //Assign data received to dialogBooks
+         // });
          console.log(dialogBooks)
          $mdDialog.show({
             locals: { name: authorName,
