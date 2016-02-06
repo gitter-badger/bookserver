@@ -139,8 +139,10 @@
       };
 
       function DialogController($scope, $mdDialog, name) {
-        console.log('name here', name)
-         $scope.name = name;
+        console.log('name here', $scope.name)
+         var authorName = name;
+        
+         $scope.name = authorName;
         
         
          $scope.hide = function () {
