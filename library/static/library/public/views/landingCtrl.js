@@ -76,9 +76,9 @@
       };
 
       //Author dialog
-      $scope.showAdvanced = function (ev, idx) {
+      $scope.showAdvanced = function (ev, name1) {
          $mdDialog.show({
-            locals: idx,
+            locals: {name: name1 },
             controller: DialogController,
             templateUrl: angular_url + 'views/authorDialogTemp.html',
             parent: angular.element(document.body),
@@ -135,9 +135,9 @@
          });
       };
 
-      function DialogController($scope, $mdDialog) {
-      //   console.log(author.name)
-        
+      function DialogController($scope, $mdDialog, name) {
+        console.log(name)
+         $scope.name = name;
         
         
          $scope.hide = function () {
