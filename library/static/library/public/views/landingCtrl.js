@@ -139,7 +139,7 @@
       };
 
       function DialogController($scope, $mdDialog, name) {
-        console.log(name)
+        console.log('name here', name)
          $scope.name = name;
         
         
