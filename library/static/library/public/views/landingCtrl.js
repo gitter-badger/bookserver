@@ -134,10 +134,8 @@
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
-            } else if (answer == 'Kindle') {
-               kindleToast();
-               console.log("google")
             }
+            
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
@@ -147,22 +145,20 @@
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             controller: DialogController,
-            templateUrl: angular_url+'views/download.dialog.temp.html',
+            templateUrl: angular_url+'views/download.dialog1.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
             fullscreen: useFullScreen
          }).then(function (answer) {
-            if (answer == 'Google') {
+            if (answer == 'Kindle') {
                googleToast();
-               console.log("google")
+               console.log("kindle")
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
-            } else if (answer == 'Kindle') {
-               kindleToast();
-               console.log("google")
-            }
+            } 
+
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
