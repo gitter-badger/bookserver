@@ -135,8 +135,8 @@
          });
       };
 
-      function DialogController($scope, $mdDialog, idx) {
-        console.log('index', idx)
+      function DialogController($scope, $mdDialog) {
+      //   console.log(author.name)
         
         
         
