@@ -139,9 +139,9 @@
       };
 
       function DialogController($scope, $mdDialog, name) {
-        console.log('name here', $scope.name)
+        console.log('name here', $scope.name, name)
          var authorName = name;
-        
+        $scope.bob = 'this should work'
          $scope.name = name;
         
         
