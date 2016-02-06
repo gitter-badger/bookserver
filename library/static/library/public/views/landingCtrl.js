@@ -104,7 +104,7 @@
       //Epub and google file transfer dialog
       $scope.downloadDialog = function (ev, url) {
          $mdDialog.show({
-            controller: DialogController,
+            controller: downloadDialogController,
             templateUrl: angular_url + 'views/download.dialog.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -125,7 +125,7 @@
       //Mobi or kindle file transfer dialog
       $scope.downloadDialog1 = function (ev, url) {
          $mdDialog.show({
-            controller: DialogController,
+            controller: downloadDialogController,
             templateUrl: angular_url + 'views/download.dialog1.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -160,5 +160,16 @@
          };
       }
 
+      function downloadDialogController($scope, $mdDialog) {
+         $scope.hide = function () {
+            $mdDialog.hide();
+         };
+         $scope.cancel = function () {
+            $mdDialog.cancel();
+         };
+         $scope.answer = function (idx) {
+            $mdDialog.hide(idx);
+         };
+      }
    });
 })();
