@@ -16,16 +16,18 @@
       // ******************************
       // Internal methods
       // ******************************
-
+// loads books 
       function searchCatalog(query) {
          $scope.loading = true;
          webServices.getBooks(query).then(function (response) {
             $scope.loading = false;
             $scope.books = response; //Assign data received to $scope.data
             console.log($scope.books)
+            console.log('a search ran')
          });
       }
 
+// loads autocomplete suggestions
       function getMatches(text) {
          deferred = $q.defer();
          webServices.getAutocomplete(text).then(function (response) {
@@ -33,7 +35,7 @@
          });
          return deferred.promise;
       }
-
+      
       function searchTextChange(text) {
          $log.info('Text changed to ' + text);
       }
@@ -77,6 +79,7 @@
 
       //Author dialog
       $scope.showAdvanced = function (ev, name1) {
+         searchCatalog(name1)
          $mdDialog.show({
             locals: {name: name1 },
             controller: DialogController,
