@@ -8,15 +8,11 @@
       self.getMatches = getMatches;
       self.selectedItemChange = selectedItemChange;
       self.searchTextChange = searchTextChange;
-      self.newState = newState;
       $scope.loading = false;
-      
       $scope.nocover = "/media/noimage.jpg"
       $scope.random = "<random> 20"
       
-      function newState(state) {
-         alert("Sorry! You'll need to create a Constituion for " + state + " first!");
-      }
+ 
       // ******************************
       // Internal methods
       // ******************************
@@ -47,24 +43,9 @@
          searchCatalog(item);
       }
 
-      $scope.showConfirm = function (ev, url) {
-         // Appending dialog to document.body to cover sidenav in docs app
-         var confirm = $mdDialog.confirm()
-            .title('Where would you like to send your book?')
-            .textContent('')
-            .ariaLabel('Lucky day')
-            .targetEvent(ev)
-            .ok('Google')
-            .clickOutsideToClose(true)
-            .cancel('Download');
-         $mdDialog.show(confirm).then(function () {
-            $scope.googleToast();
-         }, function () {
-            location.href = url
-            $scope.downloadToast();
-         });
-      };
+  
 
+//google toast
       var googleToast = function () {
          $mdToast.show(
             $mdToast.simple()
@@ -73,7 +54,8 @@
                .hideDelay(3000)
             );
       };
-      
+ 
+ //Kindle toast     
       var kindleToast = function () {
          $mdToast.show(
             $mdToast.simple()
@@ -83,9 +65,9 @@
             );
       };
 
+// book download toast
       $scope.downloadToast = function () {
          $mdToast.show(
-
             $mdToast.simple()
                .textContent('Your book download has started!')
                .position('bottom right')
@@ -94,7 +76,6 @@
       };
 
       $scope.showAdvanced = function (ev, idx) {
-         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             locals: idx,
             controller: DialogController,
@@ -110,16 +91,10 @@
             }, function () {
                $scope.status = 'You cancelled the dialog.';
             });
-            
-         $scope.$watch(function () {
-            return $mdMedia('xs') || $mdMedia('sm');
-         }, function (wantsFullScreen) {
-            $scope.customFullscreen = (wantsFullScreen === true);
-         });
       };
 
+//Epub and google file transfer dialog
       $scope.downloadDialog = function (ev, url) {
-         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             controller: DialogController,
             templateUrl: angular_url+'views/download.dialog.temp.html',
@@ -141,6 +116,7 @@
          });
       }
 
+//Mobi or kindle file transfer dialog
          $scope.downloadDialog1 = function (ev, url) {
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
@@ -165,9 +141,7 @@
       };
 
       function DialogController($scope, $mdDialog) {
-
          var self = $scope;
-         
          $scope.hide = function () {
             $mdDialog.hide();
          };
