@@ -16,18 +16,16 @@
       // ******************************
       // Internal methods
       // ******************************
-// loads books 
+      // loads books 
       function searchCatalog(query) {
          $scope.loading = true;
          webServices.getBooks(query).then(function (response) {
             $scope.loading = false;
             $scope.books = response; //Assign data received to $scope.data
-            console.log($scope.books)
-            console.log('a search ran')
          });
       }
 
-// loads autocomplete suggestions
+      // loads autocomplete suggestions
       function getMatches(text) {
          deferred = $q.defer();
          webServices.getAutocomplete(text).then(function (response) {
@@ -36,10 +34,12 @@
          return deferred.promise;
       }
       
+      // logging search text
       function searchTextChange(text) {
          $log.info('Text changed to ' + text);
       }
 
+      //autocomplete call
       function selectedItemChange(item) {
          $log.info('Item changed to ' + JSON.stringify(item));
          searchCatalog(item);
@@ -81,7 +81,7 @@
       $scope.showAdvanced = function (ev, name1) {
          searchCatalog(name1)
          $mdDialog.show({
-            locals: {name: name1 },
+            locals: { name: name1 },
             controller: DialogController,
             templateUrl: angular_url + 'views/authorDialogTemp.html',
             parent: angular.element(document.body),
@@ -139,12 +139,12 @@
       };
 
       function DialogController($scope, $mdDialog, name) {
-        console.log('name here', $scope.name, name)
+         console.log('name here', $scope.name, name)
          var authorName = name;
-        $scope.bob = 'this should work'
+         $scope.bob = 'this should work'
          $scope.name = name;
-        
-        
+
+
          $scope.hide = function () {
             $mdDialog.hide();
          };
