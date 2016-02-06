@@ -142,7 +142,7 @@
         console.log('name here', $scope.name)
          var authorName = name;
         
-         $scope.name = authorName;
+         $scope.name = name;
         
         
          $scope.hide = function () {
