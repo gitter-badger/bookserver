@@ -28,7 +28,7 @@
                <div class="md-list-item-text" layout="row" layout-sm="column" layout-xs="column">
                   <div flex="50" flex-xs="100">
                      <h2>{{book.title}}</h2>
-                     <md-button class="md-warn author" ng-click="showAdvanced($event, $index)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
+                     <md-button class="md-warn author" ng-click="showAdvanced($event, author.name)" flex-gt-md="auto" ng-repeat="author in book.authors" flex-xs="auto">
                         {{author.name}}
                      </md-button>
                      <div ng-repeat="serie in book.series">
