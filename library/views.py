@@ -218,7 +218,7 @@ class Autocomplete(View):
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
         
-class GoogleUpload:
+class GoogleUpload(View):
     def get:
         http = credentials.authorize(http)
         drive_service = build('drive', 'v2', http=http)
