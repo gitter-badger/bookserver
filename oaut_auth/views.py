@@ -13,7 +13,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.urlresolvers import reverse
-from django.contrib.sites.models import get_current_site
+ django.contrib.sites.shortcuts import get_current_site
  
 from .models import CredentialsModel, FlowModel
  
