@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
-from library.views import BookList, BookDetail, Autocomplete, AuthorList, AuthorDetail, Catalog, Index, BookishLogin, BookishUpload 
+from library.views import * 
 
 
 # Uncomment the next two lines to enable the admin:
