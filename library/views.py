@@ -219,7 +219,7 @@ class Autocomplete(View):
         return HttpResponse(serialized_data, content_type="application/json")    
         
 class GoogleUpload(View):
-    def get:
+    def get(self, request):
         http = credentials.authorize(http)
         drive_service = build('drive', 'v2', http=http)
         books_service = build('books', 'v1', http=http)
