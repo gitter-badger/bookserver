@@ -1,3 +1,7 @@
+from apiclient.discovery import build
+from apiclient.http import MediaFileUpload
+from oauth2client.client import OAuth2WebServerFlow
+
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.db.models import Q, Max
@@ -18,6 +22,10 @@ import re
 import urllib
 import urllib2
 import json
+import httplib2
+import pprint
+ 
+
         
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
@@ -45,6 +53,7 @@ class Catalog(ListView):
 
     def get_queryset(self):
         return 1
+
 
 class Index(View):
     def get(self, request):
@@ -208,6 +217,23 @@ class Autocomplete(View):
 				    	  [series.name for series in Series.objects.filter(name__istartswith=search_term)[:1]]
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
+        
+class GoogleUpload:
+    def get:
+        http = credentials.authorize(http)
+        drive_service = build('drive', 'v2', http=http)
+        books_service = build('books', 'v1', http=http)
+ 
+        # Insert a file
+        media_body = MediaFileUpload(FILENAME, mimetype='application/epub+zip')
+        body = {
+            'title': 'My book',
+        }
+        file = drive_service.files().insert(body=body, media_body=media_body).execute()
+ 
+        # Add a book to the shelf
+        book = books_service.cloudloading().addBook(drive_document_id=file['id']).execute()
+        pprint.pprint(book)
     
     
     
