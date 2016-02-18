@@ -14,7 +14,7 @@ from django.db.models.base import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-
+from django.conf import settings
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
@@ -239,7 +239,7 @@ class BookUpload(View):
         
         bookfile = get_object_or_404(BookFile, id=file_id)
         # Insert a file
-        media_body = MediaFileUpload(bookfile.fileLocation, mimetype='application/epub+zip')
+        media_body = MediaFileUpload(bookfile.fileLocation.path, mimetype='application/epub+zip')
         body = {
             'title': bookfile.book.title,
         }
