@@ -66,7 +66,15 @@
          });
       };
 
-      var googleToast = function () {
+      var googleStartToast = function () {
+         $mdToast.show(
+            $mdToast.simple()
+               .textContent('Sending your book to Google Books!')
+               .position('bottom right')
+               .hideDelay(3000)
+            );
+      };
+      var googleDoneToast = function () {
          $mdToast.show(
             $mdToast.simple()
                .textContent('Your book was sent to Google Books!')
@@ -121,9 +129,12 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
-               webServices.uploadBook(id) 
-               googleToast();
-               console.log("google")
+               webServices.uploadBook(id).then(function (response) {
+                googleDoneToast();
+                console.log('Uploaded')
+         }); 
+               googleStartToast();
+               console.log("Start uploading " + url + " " + id)
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
