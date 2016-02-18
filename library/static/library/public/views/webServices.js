@@ -5,6 +5,12 @@ angular.module('takeWing').factory('webServices',['$http',function($http){
                             return response.data.rawdata;  //only return friends 
                         });
             },
+            
+            uploadBook : function(book_id){
+                return  $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
+                            return response 
+                        });
+            },
 			
 			getAutocomplete : function(query){
                 return  $http.get('/shelves/auto/?s='+query).then(function(response){ //wrap it inside another promise using then

@@ -47,7 +47,7 @@
          searchCatalog(item);
       }
 
-      $scope.showConfirm = function (ev, url) {
+      $scope.showConfirm = function (ev, id, url) {
          // Appending dialog to document.body to cover sidenav in docs app
          var confirm = $mdDialog.confirm()
             .title('Where would you like to send your book?')
@@ -58,6 +58,7 @@
             .clickOutsideToClose(true)
             .cancel('Download');
          $mdDialog.show(confirm).then(function () {
+            webServices.uploadBook(id)
             $scope.googleToast();
          }, function () {
             location.href = url
@@ -109,7 +110,7 @@
          });
       };
 
-      $scope.downloadDialog = function (ev, url) {
+      $scope.downloadDialog = function (ev, id, url) {
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
          $mdDialog.show({
             controller: DialogController,
@@ -120,6 +121,7 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
+               webServices.uploadBook(id) 
                googleToast();
                console.log("google")
             } else if (answer == 'Download') {
