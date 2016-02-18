@@ -39,7 +39,7 @@ def index(request):
         get_current_site(request).domain, reverse("oauth2:return"))
     FLOW = flow_from_clientsecrets(
         CLIENT_SECRETS,
-        scope='https://www.googleapis.com/auth/analytics.readonly',
+        scope='https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/books',
         redirect_uri=REDIRECT_URI
     )
     user = request.user
