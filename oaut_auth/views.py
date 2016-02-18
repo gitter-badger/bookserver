@@ -73,4 +73,4 @@ def auth_return(request):
     credential = FLOW.step2_exchange(request.GET['code'])
     storage = Storage(CredentialsModel, 'id', user, 'credential')
     storage.put(credential)
-    return HttpResponseRedirect("/oauth2")
+    return HttpResponseRedirect(reverse("oauth2:index"))
