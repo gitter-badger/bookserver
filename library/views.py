@@ -224,8 +224,8 @@ class Autocomplete(View):
         return HttpResponse(serialized_data, content_type="application/json")    
         
 class BookUpload(View):
-    def post(self, request):
-        file_id = request.POST.get('fileid')
+    def get(self, request):
+        file_id = request.GET.get('fileid')
         user = request.user
         storage = Storage(CredentialsModel, 'id', user, 'credential')
         credential = storage.get()
