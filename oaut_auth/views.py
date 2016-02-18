@@ -57,8 +57,8 @@ def index(request):
         http = credential.authorize(http)
         drive_service = build('drive', 'v2', http=http)
         books_service = build('books', 'v1', http=http)
-        drive_ids = get_account_ids(drive_service)
-        book_ids = get_account_ids(books_service)
+        drive_ids = get_accounts_ids(drive_service)
+        book_ids = get_accounts_ids(books_service)
         return render(
             request, 'oauth2_authentication/main.html', {'book_ids':book_ids, 'drive_ids':drive_ids})
  
