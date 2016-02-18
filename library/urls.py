@@ -20,5 +20,6 @@ urlpatterns = patterns('',
     url(r'^bookish/book$', BookishUpload.as_view()), 
     url(r'^cat/$', Catalog.as_view()),
 	url(r'^auto/$', Autocomplete.as_view()),
+    url(r'^upload/$', BookUpload.as_view(),name='upload'),
     url(r'^$', TemplateView.as_view(template_name='library/angularCatalog.html'),name='cat'),
 )

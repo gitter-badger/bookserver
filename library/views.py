@@ -1,6 +1,11 @@
-from apiclient.discovery import build
 from apiclient.http import MediaFileUpload
 from oauth2client.client import OAuth2WebServerFlow
+import httplib2
+from oauth2client.contrib import xsrfutil
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.contrib.django_orm import Storage
+ 
+from apiclient.discovery import build
 
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
@@ -218,22 +223,29 @@ class Autocomplete(View):
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
         
-class GoogleUpload(View):
-    def get(self, request):
+class BookUpload(View):
+    def post(self, request):
+        file_id = request.POST.get('fileid')
+        user = request.user
+        storage = Storage(CredentialsModel, 'id', user, 'credential')
+        credential = storage.get()
+        if credential is None or credential.invalid is True:
+            return HttpResponseRedirect("%s?next=%s?fileid=%s"%(reverse("oauth2:index"),reverse("library:upload"),file_id))
         http = credentials.authorize(http)
         drive_service = build('drive', 'v2', http=http)
         books_service = build('books', 'v1', http=http)
- 
+        
+        bookfile = BookFile.objects.get_object_or_404(file_id)
         # Insert a file
-        media_body = MediaFileUpload(FILENAME, mimetype='application/epub+zip')
+        media_body = MediaFileUpload(bookfile.fileLocation, mimetype='application/epub+zip')
         body = {
-            'title': 'My book',
+            'title': bookfile.book.title,
         }
         file = drive_service.files().insert(body=body, media_body=media_body).execute()
  
         # Add a book to the shelf
         book = books_service.cloudloading().addBook(drive_document_id=file['id']).execute()
-        pprint.pprint(book)
+        return HttpResponse(book)
     
     
     

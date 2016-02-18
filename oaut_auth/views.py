@@ -48,19 +48,13 @@ def index(request):
     if credential is None or credential.invalid is True:
         FLOW.params['state'] = xsrfutil.generate_token(
             settings.SECRET_KEY, user)
+        FLOW.params['next'] = request.GET.get('next')
         authorize_url = FLOW.step1_get_authorize_url()
         f = FlowModel(id=user, flow=FLOW)
         f.save()
         return HttpResponseRedirect(authorize_url)
     else:
-        http = httplib2.Http()
-        http = credential.authorize(http)
-        drive_service = build('drive', 'v2', http=http)
-        books_service = build('books', 'v1', http=http)
-        drive_ids = get_accounts_ids(drive_service)
-        book_ids = get_accounts_ids(books_service)
-        return render(
-            request, 'oauth2_authentication/main.html', {'book_ids':book_ids, 'drive_ids':drive_ids})
+        return HttpResponseRedirect(FLOW.params['next'])
  
  
 @login_required

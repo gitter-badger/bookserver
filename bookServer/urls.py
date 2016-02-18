@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # url(r'^bookServer/', include('bookServer.foo.urls')),
     url(r'^shelves/', include('library.urls')),
     url(r'^o2/', include('oaut_auth.urls', namespace="oauth2")),
-    url(r'^$', lambda x: HttpResponseRedirect('/shelves/')),
+    url(r'^$', lambda x: HttpResponseRedirect('/shelves/', namespace="library")),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
