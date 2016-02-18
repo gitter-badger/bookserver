@@ -232,6 +232,7 @@ class BookUpload(View):
         credential = storage.get()
         if credential is None or credential.invalid is True:
             return HttpResponseRedirect("%s?next=%s?fileid=%s"%(reverse("oauth2:index"),reverse("library:upload"),file_id))
+        http = httplib2.Http()
         http = credential.authorize(http)
         drive_service = build('drive', 'v2', http=http)
         books_service = build('books', 'v1', http=http)
