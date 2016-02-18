@@ -237,7 +237,7 @@ class BookUpload(View):
         drive_service = build('drive', 'v2', http=http)
         books_service = build('books', 'v1', http=http)
         
-        bookfile = BookFile.objects.get_object_or_404(file_id)
+        bookfile = get_object_or_404(BookFile, id=file_id)
         # Insert a file
         media_body = MediaFileUpload(bookfile.fileLocation, mimetype='application/epub+zip')
         body = {
