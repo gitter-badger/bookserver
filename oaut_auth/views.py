@@ -66,10 +66,10 @@ def index(request):
 @login_required
 def auth_return(request):
     user = request.user
-    if not xsrfutil.validate_token(
-            settings.SECRET_KEY, request.REQUEST['state'], user):
-        return HttpResponseBadRequest()
     FLOW = FlowModel.objects.get(id=user).flow
+    if not xsrfutil.validate_token(
+            settings.SECRET_KEY, FLOW.params['state'], user):
+        return HttpResponseBadRequest()
     credential = FLOW.step2_exchange(request.REQUEST)
     storage = Storage(CredentialsModel, 'id', user, 'credential')
     storage.put(credential)
