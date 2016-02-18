@@ -21,6 +21,7 @@ from django.views.generic import DetailView
 from itertools import chain
 from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
+from oaut_auth.models import CredentialsModel, FlowModel
 from random import shuffle, randint
 import requests as basic_request
 import re
