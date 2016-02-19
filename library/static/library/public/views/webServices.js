@@ -7,9 +7,7 @@ angular.module('takeWing').factory('webServices',['$http',function($http){
             },
             
             uploadBook : function(book_id){
-                return  $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
-                            return response 
-                        });
+                return  $window.open('/shelves/upload/?fileid='+book_id', '_blank');
             },
 			
 			getAutocomplete : function(query){
