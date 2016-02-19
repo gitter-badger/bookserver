@@ -1,4 +1,4 @@
-angular.module('takeWing').factory('webServices',['$http',function($http){
+angular.module('takeWing').factory('webServices',['$http','$window',function($http,$window){
         return {
             getBooks : function(query){
                 return  $http.get('/shelves/index/?s='+query).then(function(response){ //wrap it inside another promise using then
