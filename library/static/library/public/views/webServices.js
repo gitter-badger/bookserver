@@ -7,7 +7,8 @@ angular.module('takeWing').factory('webServices',['$http',function($http){
             },
             
             uploadBook : function(book_id){
-                return  $window.open('/shelves/upload/?fileid='+book_id', '_blank');
+                $window.open('/shelves/upload/?fileid='+book_id, '_blank');
+                return;
             },
 			
 			getAutocomplete : function(query){
