@@ -129,10 +129,7 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
-               webServices.uploadBook(id).then(function (response) {
-                googleDoneToast();
-                console.log('Uploaded')
-         }); 
+               webServices.uploadBook(id);
                googleStartToast();
                console.log("Start uploading " + url + " " + id)
             } else if (answer == 'Download') {
