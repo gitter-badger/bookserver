@@ -1,5 +1,5 @@
 (function () {
-   angular.module('takeWing').controller('landingCtrl', function (webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia) {
+   angular.module('takeWing').controller('landingCtrl', function (webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia, $window) {
 
       var self = this;
       self.simulateQuery = false;
@@ -129,7 +129,7 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
-               webServices.uploadBook(id);
+               $window.open('/shelves/upload/?fileid='+id, '_blank');
                googleStartToast();
                console.log("Start uploading " + url + " " + id)
             } else if (answer == 'Download') {
