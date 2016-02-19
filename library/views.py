@@ -18,6 +18,7 @@ from django.conf import settings
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.http import HttpResponseRedirect
 from itertools import chain
 from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
