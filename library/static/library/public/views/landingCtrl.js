@@ -120,6 +120,7 @@
 
       $scope.downloadDialog = function (ev, id, url) {
          var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+         var upload_url = 'https://library.takewing.org/shelves/upload/?fileid='+id
          $mdDialog.show({
             controller: DialogController,
             templateUrl: angular_url+'views/download.dialog.temp.html',
@@ -129,7 +130,7 @@
             fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
-               $window.open('/shelves/upload/?fileid='+id, '_blank');
+               $window.open(upload_url, '_blank');
                googleStartToast();
                console.log("Start uploading " + url + " " + id)
             } else if (answer == 'Download') {
