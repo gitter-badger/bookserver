@@ -54,7 +54,7 @@ def index(request):
         f.save()
         return HttpResponseRedirect(authorize_url)
     else:
-        return HttpResponse("<html><head><title>Close</title></head><body onload="window.close();">Thank you for authorizing the app. Please close this window</body></html>")
+        return HttpResponse('<html><head><title>Close</title></head><body onload="window.close();">Thank you for authorizing the app. Please close this window</body></html>')
  
  
 @login_required
