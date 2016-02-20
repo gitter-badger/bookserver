@@ -9,7 +9,7 @@ angular.module('takeWing').factory('webServices',['$http','$window',function($ht
             uploadBook : function(book_id){
                 $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
                     if (response.data.authorize_url){
-                    var popup = $window.open('response.data.authorize_url', '_blank');
+                    var popup = $window.open(response.data.authorize_url, '_blank');
                         setTimeout( function() {
                             if(!popup || popup.outerHeight === 0) {
                                 //First Checking Condition Works For IE & Firefox
@@ -20,8 +20,8 @@ angular.module('takeWing').factory('webServices',['$http','$window',function($ht
                                  $window.onfocus = function(){
                                      console.log("focused");
                                      $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
-                                        if (response.data.authorize_url){
-                                        
+                                        $window.onfocus = function(){
+                                            console.log("focused");
                                         }
                                         
                                      });
