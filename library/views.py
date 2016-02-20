@@ -233,7 +233,7 @@ class BookUpload(View):
         storage = Storage(CredentialsModel, 'id', user, 'credential')
         credential = storage.get()
         if credential is None or credential.invalid is True:
-            return HttpResponse(json.dumps{'authorize_url':reverse("oauth2:index"), 'recall_url':"%s?fileid=%s"%(reverse("library:upload"),file_id)}),content_type="application/json")
+            return HttpResponse(json.dumps({'authorize_url':reverse("oauth2:index"), 'recall_url':"%s?fileid=%s"%(reverse("library:upload"),file_id)}),content_type="application/json")
         http = httplib2.Http()
         http = credential.authorize(http)
         drive_service = build('drive', 'v2', http=http)
@@ -250,8 +250,7 @@ class BookUpload(View):
         # Add a book to the shelf
         book = books_service.cloudloading().addBook(drive_document_id=file['id']).execute()
         return HttpResponse(json.dumps(book))
-    
-    
+        
     
     
     
