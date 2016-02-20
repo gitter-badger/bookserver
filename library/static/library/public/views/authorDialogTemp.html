@@ -2,21 +2,22 @@
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Authors's name</h2>
+        <h2>{{name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
+     <md-progress-linear md-mode="indeterminate" ng-if="load" id="progressAuthor"></md-progress-linear>
     <md-dialog-content>
       <div class="md-dialog-content">
-        <h2>Maybe some Author information</h2>
+        <h2>{{authorBooks}}</h2>
        
       </div>
     </md-dialog-content>
-    <md-dialog-actions layout="row">
-      <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+    <md-dialog-actions layout="row" layout-xs="column">
+      <md-button href="{{wiki}}" target="_blank" md-autofocus>
         More on Wikipedia
       </md-button>
       <span flex></span>

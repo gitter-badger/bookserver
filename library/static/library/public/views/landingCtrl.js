@@ -8,28 +8,24 @@
       self.getMatches = getMatches;
       self.selectedItemChange = selectedItemChange;
       self.searchTextChange = searchTextChange;
-      self.newState = newState;
       $scope.loading = false;
-      
       $scope.nocover = "/media/noimage.jpg"
       $scope.random = "<random> 20"
       
-      function newState(state) {
-         alert("Sorry! You'll need to create a Constituion for " + state + " first!");
-      }
+ 
       // ******************************
       // Internal methods
       // ******************************
-
+      // loads books 
       function searchCatalog(query) {
          $scope.loading = true;
          webServices.getBooks(query).then(function (response) {
             $scope.loading = false;
             $scope.books = response; //Assign data received to $scope.data
-            console.log($scope.books)
          });
       }
-      
+
+      // loads autocomplete suggestions
       function getMatches(text) {
          deferred = $q.defer();
          webServices.getAutocomplete(text).then(function (response) {
@@ -38,14 +34,17 @@
          return deferred.promise;
       }
       
+      // logging search text
       function searchTextChange(text) {
          $log.info('Text changed to ' + text);
       }
-      
+
+      //autocomplete call
       function selectedItemChange(item) {
          $log.info('Item changed to ' + JSON.stringify(item));
          searchCatalog(item);
       }
+
 
       $scope.showConfirm = function (ev, id, url) {
          // Appending dialog to document.body to cover sidenav in docs app
@@ -75,6 +74,7 @@
             );
       };
       var googleDoneToast = function () {
+
          $mdToast.show(
             $mdToast.simple()
                .textContent('Your book was sent to Google Books!')
@@ -82,10 +82,20 @@
                .hideDelay(3000)
             );
       };
+ 
+      //Kindle toast     
+      var kindleToast = function () {
+         $mdToast.show(
+            $mdToast.simple()
+               .textContent('Your book was sent to Kindle Books!')
+               .position('bottom right')
+               .hideDelay(3000)
+            );
+      };
 
+      // book download toast
       $scope.downloadToast = function () {
          $mdToast.show(
-
             $mdToast.simple()
                .textContent('Your book download has started!')
                .position('bottom right')
@@ -93,16 +103,21 @@
             );
       };
 
-      $scope.showAdvanced = function (ev, idx) {
-         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
+      //Author dialog
+      $scope.showAdvanced = function (ev, authorName) {
+        var dialogBooks
+         // webServices.getBooks(authorName).then(function (response) {
+            // dialogBooks = response; //Assign data received to dialogBooks
+         // });
+         console.log(dialogBooks)
          $mdDialog.show({
-            locals: idx,
+            locals: { name: authorName,
+                      books: dialogBooks },
             controller: DialogController,
-            templateUrl: angular_url+'views/authorDialogTemp.html',
+            templateUrl: angular_url + 'views/authorDialogTemp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
          })
             .then(function (answer) {
                console.log(answer)
@@ -110,24 +125,17 @@
             }, function () {
                $scope.status = 'You cancelled the dialog.';
             });
-            
-         $scope.$watch(function () {
-            return $mdMedia('xs') || $mdMedia('sm');
-         }, function (wantsFullScreen) {
-            $scope.customFullscreen = (wantsFullScreen === true);
-         });
       };
 
+
+ 
       $scope.downloadDialog = function (ev, id, url) {
-         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-         var upload_url = 'https://library.takewing.org/shelves/upload/?fileid='+id
          $mdDialog.show({
-            controller: DialogController,
-            templateUrl: angular_url+'views/download.dialog.temp.html',
+            controller: downloadDialogController,
+            templateUrl: angular_url + 'views/download.dialog.temp.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
          }).then(function (answer) {
             if (answer == 'Google') {
                webServices.uploadBook(id).then(function (response) {
@@ -142,18 +150,34 @@
          }, function () {
             $scope.status = 'You cancelled the dialog.';
          });
+      }
 
-         $scope.$watch(function () {
-            return $mdMedia('xs') || $mdMedia('sm');
-         }, function (wantsFullScreen) {
-            $scope.customFullscreen = (wantsFullScreen === true);
+      //Mobi or kindle file transfer dialog
+      $scope.downloadDialog1 = function (ev, url) {
+         $mdDialog.show({
+            controller: downloadDialogController,
+            templateUrl: angular_url + 'views/download.dialog1.temp.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+         }).then(function (answer) {
+            if (answer == 'Kindle') {
+               kindleToast();
+               console.log("kindle")
+            } else if (answer == 'Download') {
+               location.href = url
+               $scope.downloadToast();
+            }
+         }, function () {
+            $scope.status = 'You cancelled the dialog.';
          });
-
       };
 
-      function DialogController($scope, $mdDialog) {
-
-         var self = $scope;
+      function DialogController($scope, $mdDialog, name, books) {
+         $scope.name=name;
+         $scope.authorBooks=books
+         console.log("books", books)
+         $scope.wiki = "http://en.wikipedia.org/wiki/" + name
          
          $scope.hide = function () {
             $mdDialog.hide();
@@ -166,5 +190,16 @@
          };
       }
 
-   })
+      function downloadDialogController($scope, $mdDialog) {
+         $scope.hide = function () {
+            $mdDialog.hide();
+         };
+         $scope.cancel = function () {
+            $mdDialog.cancel();
+         };
+         $scope.answer = function (idx) {
+            $mdDialog.hide(idx);
+         };
+      }
+   });
 })();
