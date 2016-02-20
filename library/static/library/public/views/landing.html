@@ -39,10 +39,14 @@
                      </md-button>
              </div>
                   </div>
+<<<<<<< HEAD
+                  <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-click='downloadDialog($event, type.id, type.url)'>
+=======
                   <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-if="type.name == 'epub'" ng-click='downloadDialog($event, type.url)'>
                      {{type.name}}
                   </md-button>
                   <md-button ng-repeat="type in book.filetypes" flex="auto" layout-margin class="md-button md-primary" ng-if="type.name == 'mobi'" ng-click='downloadDialog1($event, type.url)'>
+>>>>>>> master
                      {{type.name}}
                   </md-button>
                </div>

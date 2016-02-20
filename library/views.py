@@ -1,3 +1,16 @@
+
+from apiclient.http import MediaFileUpload
+from oauth2client.client import OAuth2WebServerFlow
+import httplib2
+from oauth2client.contrib import xsrfutil
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.contrib.django_orm import Storage
+ 
+from apiclient.discovery import build
+
+
+from __future__ import unicode_literals
+
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.db.models import Q, Max
@@ -5,20 +18,31 @@ from django.db.models.base import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
+from django.conf import settings
 
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from itertools import chain
 from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
+from oaut_auth.models import CredentialsModel, FlowModel
 from random import shuffle, randint
 import requests as basic_request
 import re
 import urllib
 import urllib2
 import json
-        
+
+import httplib2
+import pprint
+
+
+from django.core.files.base import ContentFile
+
+
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
     
@@ -46,10 +70,9 @@ class Catalog(ListView):
     def get_queryset(self):
         return 1
 
+
 class Index(View):
     def get(self, request):
-        #Need to pull search term here filter author, series, and title off 
-        #of it and then compiler dataset for templates
         search_term = request.GET.get('s', '')
         search_words = search_term.split(' ')
         filter_search = ' '.join(search_words[1:])
@@ -68,8 +91,35 @@ class Index(View):
             result_list = Book.objects.filter(series__name=filter_search)
         else:
             result_list = Book.objects.filter(Q(title__icontains=search_term) | Q(authors__name__icontains=search_term) | Q(series__name__icontains=search_term)).distinct()
+        coverData =[]
+        for book in result_list:
+            coverData.append("Has Cover")
+            if book.cover == 'none':
+                coverData[-1] = "Missing Cover Added"
+                title=urllib.quote(book.title)
+                author=urllib.quote(book.authors.first().name)
+                myUrl="https://www.googleapis.com/books/v1/volumes?q=intitle:%s+inauthor:%s&startIndex=0&maxResults=1&key=%s"%(title,author,settings.GOOGLE_BOOKS_API_KEY)
+                response = basic_request.get(myUrl)
+                data = json.loads(response.text)
+                if 'totalItems' not in data:
+                    coverData[-1] = "API Limit"
+                    continue
+                if not data['totalItems'] :
+                    coverData[-1] = "Book not Found"
+                    book.cover = "none_google"
+                    book.save()
+                    continue
+                bookData = data['items'][0]['volumeInfo']
+                if 'imageLinks' in bookData:
+                    image_content = ContentFile(basic_request.get(bookData['imageLinks']['thumbnail']).content)
+                    book.cover.save("cover.jpg", image_content)
+                else:
+                    coverData[-1] = "No Covers at Google"
+                    book.cover = "none_google"
+                    book.save()
+                    continue
         rawdata = [obj.as_dict() for obj in result_list]
-        serialized_data = json.dumps({'rawdata':rawdata})
+        serialized_data = json.dumps({'Test':coverData, 'rawdata':rawdata})
         return HttpResponse(serialized_data, content_type="application/json")
     def post(self, request):
         #Need to pull search term here filter author, series, and title off 
@@ -192,24 +242,48 @@ class Autocomplete(View):
 				    result_list =['<random> %s' %filter_search]
                 else: 
 				    result_list =['<random> %d' %total_items]
-            elif (search_words[0] in "<Author>"):
+            elif (search_words[0] in "<Author>" or search_words[0] in "<author>"):
                 here = 1
                 result_list = ["<Author> %s" %author.name for author in Author.objects.filter(name__istartswith=filter_search)[:2]] + \
                               ["<Author> %s" %author.sort for author in Author.objects.filter(sort__istartswith=filter_search)[:1]]
-            elif (search_words[0] in "<Title>"):
+            elif (search_words[0] in "<Title>" or search_words[0] in "<title>"):
                 result_list = ["<Title> %s" %book.title for book in Book.objects.filter(title__istartswith=filter_search)[:4]]
-            elif (search_words[0] in "<Series>"):
+            elif (search_words[0] in "<Series>" or search_words[0] in "<series>"):
                 result_list = ["<Series> %s"%series.name for series in series.objects.filter(name__istartswith=filter_search)[:4]]
         if not result_list:
             here = 2
-            result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:1]] + \
+            result_list = [author.name for author in Author.objects.filter(name__istartswith=search_term)[:2]] + \
                           [author.sort for author in Author.objects.filter(sort__istartswith=search_term)[:1]] + \
-		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:1]] + \
+		                  [book.title for book in Book.objects.filter(title__istartswith=search_term)[:2]] + \
 				    	  [series.name for series in Series.objects.filter(name__istartswith=search_term)[:1]]
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
-    
-    
+        
+class BookUpload(View):
+    def get(self, request):
+        file_id = request.GET.get('fileid')
+        user = request.user
+        storage = Storage(CredentialsModel, 'id', user, 'credential')
+        credential = storage.get()
+        if credential is None or credential.invalid is True:
+            return HttpResponse(json.dumps({'authorize_url':reverse("oauth2:index"), 'recall_url':"%s?fileid=%s"%(reverse("library:upload"),file_id)}),content_type="application/json")
+        http = httplib2.Http()
+        http = credential.authorize(http)
+        drive_service = build('drive', 'v2', http=http)
+        books_service = build('books', 'v1', http=http)
+        
+        bookfile = get_object_or_404(BookFile, id=file_id)
+        # Insert a file
+        media_body = MediaFileUpload(bookfile.fileLocation.path, mimetype='application/epub+zip')
+        body = {
+            'title': bookfile.book.title,
+        }
+        file = drive_service.files().insert(body=body, media_body=media_body).execute()
+ 
+        # Add a book to the shelf
+        book = books_service.cloudloading().addBook(drive_document_id=file['id']).execute()
+        return HttpResponse(json.dumps(book))
+        
     
     
     
