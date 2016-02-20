@@ -9,7 +9,7 @@ angular.module('takeWing').factory('webServices',['$http','$window',function($ht
             uploadBook : function(book_id){
                 $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
                     if (response.authorize_url){
-                    var popup = $window.open('response.authorize_url, '_blank');
+                    var popup = $window.open('response.authorize_url', '_blank');
                         setTimeout( function() {
                             if(!popup || popup.outerHeight === 0) {
                                 //First Checking Condition Works For IE & Firefox
