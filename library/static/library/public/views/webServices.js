@@ -7,8 +7,22 @@ angular.module('takeWing').factory('webServices',['$http','$window',function($ht
             },
             
             uploadBook : function(book_id){
-                $window.open('/shelves/upload/?fileid='+book_id, '_blank');
-                return;
+                $http.get('/shelves/upload/?fileid='+book_id).then(function(response){ //wrap it inside another promise using then
+                    if (response.authorize_url){
+                    var popup = $window.open('response.authorize_url, '_blank');
+                        setTimeout( function() {
+                            if(!popup || popup.outerHeight === 0) {
+                                //First Checking Condition Works For IE & Firefox
+                                //Second Checking Condition Works For Chrome
+                                alert("Popup Blocker is enabled! Please add this site to your exception list.");
+                            } 
+                            else{
+                                //create focus listener
+                            }
+                        }, 250);
+                    }
+                    return response;  //only return friends 
+                });
             },
 			
 			getAutocomplete : function(query){
