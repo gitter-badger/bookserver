@@ -1,4 +1,16 @@
+
+from apiclient.http import MediaFileUpload
+from oauth2client.client import OAuth2WebServerFlow
+import httplib2
+from oauth2client.contrib import xsrfutil
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.contrib.django_orm import Storage
+ 
+from apiclient.discovery import build
+
+
 from __future__ import unicode_literals
+
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
 from django.db.models import Q, Max
@@ -11,9 +23,12 @@ from django.conf import settings
 from django.views.generic import View
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from itertools import chain
 from library.models import Book, Author, Series, BookFile,Bookish
 from library.myUtils import extract_form_fields
+from oaut_auth.models import CredentialsModel, FlowModel
 from random import shuffle, randint
 import requests as basic_request
 import re
@@ -21,7 +36,12 @@ import urllib
 import urllib2
 import json
 
+import httplib2
+import pprint
+
+
 from django.core.files.base import ContentFile
+
 
 class AuthorList(ListView):
     queryset = Author.objects.order_by('sort')
@@ -49,6 +69,7 @@ class Catalog(ListView):
 
     def get_queryset(self):
         return 1
+
 
 class Index(View):
     def get(self, request):
@@ -237,8 +258,32 @@ class Autocomplete(View):
 				    	  [series.name for series in Series.objects.filter(name__istartswith=search_term)[:1]]
         serialized_data = json.dumps({"result_list":result_list,'debug':{'test':here, 'search_term':search_term,'search_words':search_words}})
         return HttpResponse(serialized_data, content_type="application/json")    
-    
-    
+        
+class BookUpload(View):
+    def get(self, request):
+        file_id = request.GET.get('fileid')
+        user = request.user
+        storage = Storage(CredentialsModel, 'id', user, 'credential')
+        credential = storage.get()
+        if credential is None or credential.invalid is True:
+            return HttpResponse(json.dumps({'authorize_url':reverse("oauth2:index"), 'recall_url':"%s?fileid=%s"%(reverse("library:upload"),file_id)}),content_type="application/json")
+        http = httplib2.Http()
+        http = credential.authorize(http)
+        drive_service = build('drive', 'v2', http=http)
+        books_service = build('books', 'v1', http=http)
+        
+        bookfile = get_object_or_404(BookFile, id=file_id)
+        # Insert a file
+        media_body = MediaFileUpload(bookfile.fileLocation.path, mimetype='application/epub+zip')
+        body = {
+            'title': bookfile.book.title,
+        }
+        file = drive_service.files().insert(body=body, media_body=media_body).execute()
+ 
+        # Add a book to the shelf
+        book = books_service.cloudloading().addBook(drive_document_id=file['id']).execute()
+        return HttpResponse(json.dumps(book))
+        
     
     
     

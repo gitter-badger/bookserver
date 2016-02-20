@@ -1,5 +1,5 @@
 (function () {
-   angular.module('takeWing').controller('landingCtrl', function (webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia) {
+   angular.module('takeWing').controller('landingCtrl', function (webServices, $scope, $timeout, $q, $log, $mdDialog, $mdToast, $mdMedia, $window) {
 
       var self = this;
       self.simulateQuery = false;
@@ -45,10 +45,36 @@
          searchCatalog(item);
       }
 
-  
 
-      //google toast
-      var googleToast = function () {
+      $scope.showConfirm = function (ev, id, url) {
+         // Appending dialog to document.body to cover sidenav in docs app
+         var confirm = $mdDialog.confirm()
+            .title('Where would you like to send your book?')
+            .textContent('')
+            .ariaLabel('Lucky day')
+            .targetEvent(ev)
+            .ok('Google')
+            .clickOutsideToClose(true)
+            .cancel('Download');
+         $mdDialog.show(confirm).then(function () {
+            webServices.uploadBook(id)
+            $scope.googleToast();
+         }, function () {
+            location.href = url
+            $scope.downloadToast();
+         });
+      };
+
+      var googleStartToast = function () {
+         $mdToast.show(
+            $mdToast.simple()
+               .textContent('Sending your book to Google Books!')
+               .position('bottom right')
+               .hideDelay(3000)
+            );
+      };
+      var googleDoneToast = function () {
+
          $mdToast.show(
             $mdToast.simple()
                .textContent('Your book was sent to Google Books!')
@@ -101,8 +127,9 @@
             });
       };
 
-      //Epub and google file transfer dialog
-      $scope.downloadDialog = function (ev, url) {
+
+ 
+      $scope.downloadDialog = function (ev, id, url) {
          $mdDialog.show({
             controller: downloadDialogController,
             templateUrl: angular_url + 'views/download.dialog.temp.html',
@@ -111,8 +138,11 @@
             clickOutsideToClose: true,
          }).then(function (answer) {
             if (answer == 'Google') {
-               googleToast();
-               console.log("google")
+               webServices.uploadBook(id).then(function (response) {
+                   googleDoneToast();
+               });
+               googleStartToast();
+               console.log("Start uploading " + url + " " + id)
             } else if (answer == 'Download') {
                location.href = url
                $scope.downloadToast();
