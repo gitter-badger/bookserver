@@ -1,4 +1,4 @@
-
+from __future__ import unicode_literals
 from apiclient.http import MediaFileUpload
 from oauth2client.client import OAuth2WebServerFlow
 import httplib2
@@ -9,7 +9,7 @@ from oauth2client.contrib.django_orm import Storage
 from apiclient.discovery import build
 
 
-from __future__ import unicode_literals
+
 
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
