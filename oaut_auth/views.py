@@ -8,7 +8,7 @@ from apiclient.discovery import build
  
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.conf import settings
 from django.contrib.auth import get_user_model
