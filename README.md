@@ -10,3 +10,6 @@ authors/<author_slug> gives detail on a specific book
 
 
 /shelves/ is a jquery interface that lets you search for books - it was only ever half finished and is quite rough. Current project is to replace it with a moble friendly page.
+
+
+[![Join the chat at https://gitter.im/david--wright/bookserver](https://badges.gitter.im/david--wright/bookserver.svg)](https://gitter.im/david--wright/bookserver?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
